@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# inlabru-course-may-2025
+# inlabruCourseMay2025
 
 <!-- badges: start -->
 <!-- badges: end -->

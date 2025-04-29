@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# inlabru-course-may-2025
+# inlabruCourseMay2025
 
 <!-- badges: start -->
 <!-- badges: end -->
