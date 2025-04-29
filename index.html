@@ -31,7 +31,18 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-installation" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Installation</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-installation">
+<li><a class="dropdown-item" href="articles/install.html">Software installation</a></li>
+  </ul>
+</li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-tutorials" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Tutorials</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-tutorials">
+<li><h6 class="dropdown-header" data-toc-skip>Tutorials</h6></li>
+  </ul>
+</li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
@@ -49,7 +60,56 @@
 </h1></div>
 <!-- badges: start -->
 <!-- badges: end -->
-<p>This is the course materials page and package for the Edinburgh <code>inlabru</code> course, 19 and 20 May 2025. Follow the menu links to information and tutorials, as and when they become available.</p>
+<p>This is the course materials page and package for the <a href="https://centreforstatistics.maths.ed.ac.uk/events/upcoming-events/inlabru" class="external-link">Edinburgh <code>inlabru</code> course</a>, 19 and 20 May 2025. Follow the menu links to information and tutorials, as and when they become available.</p>
+<div class="section level2">
+<h2 id="event-overview">Event Overview<a class="anchor" aria-label="anchor" href="#event-overview"></a>
+</h2>
+<p>Bayesian Latent Gaussian Models (LGMs) are closely related to Generalized Additive Models (GAMs), offering Bayesian estimation and uncertainty quantification for spatial and spatio-temporal models. The <a href="https://www.r-inla.org/" class="external-link">INLA</a> and <a href="https::inlabru-org.github.io/inlabru/">inlabru</a> R packages combine these Gaussian process models with numerical optimization and integration techniques, in a fast and flexible analysis toolkit. The taught part of the course will provide an overview of LGM theory and the INLA/inlabru methods and software, while the hands-on sessions will make sure the attendees will be ready to start doing spatial LGM modelling in R as soon as the course is over.</p>
+</div>
+<div class="section level2">
+<h2 id="topics-covered">Topics covered<a class="anchor" aria-label="anchor" href="#topics-covered"></a>
+</h2>
+<p>Basics of latent Gaussian process models in the Bayesian spatial statistics context. The principles of the INLA method for fast Baysian inference, and inlabru extensions for non-linear models. The inlabu package principles and interface. Building spatial and spatio-temporal models for point-referenced, spatially aggregated, and point pattern observations. Computing and assessing posterior predictions and visualisation. Diagnosing modelling problems.</p>
+</div>
+<div class="section level2">
+<h2 id="instructor">Instructor<a class="anchor" aria-label="anchor" href="#instructor"></a>
+</h2>
+<p>Prof <a href="https:://www.maths.ed.ac.uk/~flindgre">Finn Lindgren</a> is Chair of Statistics in the School of Mathematics, University of Edinburgh.</p>
+<p>His research focuses on spatial and spatio-temporal stochastic models, environmetrics, and computational methods and software. Among many others, he co-authored the influential paper “An Explicit Link Between Gaussian Fields and Gaussian Markov Random Fields: The Stochastic Partial Differential Equation Approach,” published in the Journal of the Royal Statistical Society: Series B. Professor Lindgren has contributed to the development of several R packages, including INLA for Bayesian latent Gaussian models and inlabru, a user-friendly interface for INLA with additional features</p>
+</div>
+<div class="section level2">
+<h2 id="learning-outcomes">Learning outcomes<a class="anchor" aria-label="anchor" href="#learning-outcomes"></a>
+</h2>
+<ul>
+<li>Understand the basic theory underpinning spatial latent Gaussian process models and Bayesian inference</li>
+<li>Use inlabru to fit various spatial models to data, including point-referenced, aggregated, and point pattern data.</li>
+<li>Be able to compute posterior predictions.</li>
+<li>Assess and compare models</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="daily-timetable-tentative">Daily timetable (tentative)<a class="anchor" aria-label="anchor" href="#daily-timetable-tentative"></a>
+</h2>
+<ul>
+<li>09:30 - 10:30 Lecture</li>
+<li>10:30 - 11:00 coffee break</li>
+<li>11:00 - 12:30 Lecture/Hands on session</li>
+<li>12:30 - 13:30 Lunch</li>
+<li>13:30 - 15:00 Lecture/hands on session</li>
+<li>15:00 - 15:30 break</li>
+<li>15:30 - 17:00 Lecture/hands on session</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="target-audience">Target audience<a class="anchor" aria-label="anchor" href="#target-audience"></a>
+</h2>
+<p>Anyone with some statistics training who is aware of spatial data and the basics of additive models could benefit from attending. Fields where this may be most popular are: ecology, geosciences, ecology, epidemiology, public health, psychology, econometrics.</p>
+</div>
+<div class="section level2">
+<h2 id="assumed-knowledge">Assumed knowledge<a class="anchor" aria-label="anchor" href="#assumed-knowledge"></a>
+</h2>
+<p>Attendees should be comfortable with using R. They should understand linear and additive models, though this can be intuitive and doesn’t have to be mathematically rigorous. They do not need to have used INLA or inlabru before.</p>
+</div>
 </div>
   </main><aside class="col-md-3"><div class="license">
 <h2 data-toc-skip>License</h2>
