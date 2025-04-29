@@ -10,6 +10,9 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 URL: https://inlabru-org.github.io/inlabruCourseMay2025/
 Suggests:
-  INLA,
-  inlabru,
-  fmesher
+    INLA,
+    inlabru,
+    fmesher,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

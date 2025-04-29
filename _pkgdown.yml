@@ -2,3 +2,19 @@ url: https://inlabru-org.github.io/inlabruCourseMay2025/
 template:
   bootstrap: 5
   bootswatch: cosmo
+
+navbar:
+  structure:
+    left: [home, intro, installation, tutorials]
+    right: [search, github]
+  components:
+    installation:
+      text: Installation
+      menu:
+        - text: Software installation
+          href: articles/install.html
+    tutorials:
+      text: Tutorials
+      menu:
+      - text: Tutorials
+
