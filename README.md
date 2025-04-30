@@ -18,7 +18,7 @@ Bayesian Latent Gaussian Models (LGMs) are closely related to
 Generalized Additive Models (GAMs), offering Bayesian estimation and
 uncertainty quantification for spatial and spatio-temporal models. The
 [INLA](https://www.r-inla.org/) and
-[inlabru](https::inlabru-org.github.io/inlabru/) R packages combine
+[inlabru](https://inlabru-org.github.io/inlabru/) R packages combine
 these Gaussian process models with numerical optimization and
 integration techniques, in a fast and flexible analysis toolkit. The
 taught part of the course will provide an overview of LGM theory and the
