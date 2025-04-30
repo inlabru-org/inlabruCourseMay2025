@@ -14,6 +14,9 @@ knitr::opts_chunk$set(
 )
 ```
 
+Please use the instructions below to install and check your installation. If you run into issues, you can post a question with information about what you tried and what didn't work, on the [course github discussion page](https://github.com/inlabru-org/inlabruCourseMay2025/discussions) and Finn will reply when he's able.
+Since 29 April 2025, the latest INLA package is built for R 4.5, so if you're able to upgrade your R installation, please do so to avoid unnecessary issues. The package will in many cases also work with older R versions, but compatibility is sometimes difficult.
+
 ## Installing `INLA` and `inlabru`
 
 Due to the work involved in building the binaries for the INLA package C software for different architectures,
@@ -62,7 +65,7 @@ BiocManager::install(c("graph", "Rgraphviz"), dep = TRUE)
 
 ## Installation check
 
-Please check your installation using the basic model runs below. I you run into issues, you can post a question with information about what you tried and what didn't work, on the [course github discussion page](https://github.com/inlabru-org/inlabruCourseMay2025/discussions) and Finn will reply when he's able.
+Please check your installation using the basic model runs below. If you run into issues, you can post a question with information about what you tried and what didn't work, on the [course github discussion page](https://github.com/inlabru-org/inlabruCourseMay2025/discussions) and Finn will reply when he's able.
 Since 29 April 2025, the latest INLA package is built for R 4.5, so if you're able to upgrade your R installation, please do so to avoid unnecessary issues. The package will in many cases also work with older R versions, but compatibility is sometimes difficult.
 
 You can check that `INLA` is correctly installed by running
