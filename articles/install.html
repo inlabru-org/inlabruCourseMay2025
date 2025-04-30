@@ -120,6 +120,14 @@ essential for this course, but can be installed with</p>
 <div class="section level2">
 <h2 id="installation-check">Installation check<a class="anchor" aria-label="anchor" href="#installation-check"></a>
 </h2>
+<p>Please check your installation using the basic model runs below. I
+you run into issues, you can post a question with information about what
+you tried and what didn’t work, on the <a href="https://github.com/inlabru-org/inlabruCourseMay2025/discussions" class="external-link">course
+github discussion page</a> and Finn will reply when he’s able. Since 29
+April 2025, the latest INLA package is built for R 4.5, so if you’re
+able to upgrade your R installation, please do so to avoid unnecessary
+issues. The package will in many cases also work with older R versions,
+but compatibility is sometimes difficult.</p>
 <p>You can check that <code>INLA</code> is correctly installed by
 running</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
@@ -130,7 +138,7 @@ running</p>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Time used:</span></span>
-<span><span class="co">#&gt;     Pre = 0.38, Running = 0.257, Post = 0.0145, Total = 0.652 </span></span>
+<span><span class="co">#&gt;     Pre = 0.375, Running = 0.286, Post = 0.0144, Total = 0.675 </span></span>
 <span><span class="co">#&gt; Fixed effects:</span></span>
 <span><span class="co">#&gt;               mean    sd 0.025quant 0.5quant 0.975quant   mode kld</span></span>
 <span><span class="co">#&gt; (Intercept) 10.071 0.105      9.865   10.071     10.277 10.071   0</span></span>
@@ -170,7 +178,7 @@ hardware/software combination, with
 <span><span class="co">#&gt;     Predictor: y ~ .</span></span>
 <span><span class="co">#&gt;     Used components: effects[Intercept], latent[]</span></span>
 <span><span class="co">#&gt; Time used:</span></span>
-<span><span class="co">#&gt;     Pre = 0.223, Running = 0.271, Post = 0.0371, Total = 0.531 </span></span>
+<span><span class="co">#&gt;     Pre = 0.228, Running = 0.324, Post = 0.0378, Total = 0.59 </span></span>
 <span><span class="co">#&gt; Fixed effects:</span></span>
 <span><span class="co">#&gt;             mean    sd 0.025quant 0.5quant 0.975quant   mode kld</span></span>
 <span><span class="co">#&gt; Intercept 10.071 0.105      9.865   10.071     10.277 10.071   0</span></span>
