@@ -4,6 +4,7 @@
 # inlabruCourseMay2025
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
 This is the course materials page and package for the [Edinburgh
@@ -62,13 +63,30 @@ with additional features
 
 ## Daily timetable (tentative)
 
-- 09:30 - 10:30 Lecture
+### Monday 19/5
+
+- 09:30 - 10:30 Lecture (Spatial modelling with random fields)
 - 10:30 - 11:00 coffee break
-- 11:00 - 12:30 Lecture/Hands on session
+- 11:00 - 12:30 Lecture/Hands on session (Introduction to
+  `INLA`/`inlabru`/`fmesher`)
 - 12:30 - 13:30 Lunch
-- 13:30 - 15:00 Lecture/hands on session
+- 13:30 - 15:00 Lecture/Hands on session (Temporal and spatial models
+  for point-referenced data)
 - 15:00 - 15:30 break
-- 15:30 - 17:00 Lecture/hands on session
+- 15:30 - 17:00 Lecture/Hands on session (Non-linear predictors)
+
+### Tuesday 20/5
+
+- 09:30 - 10:30 Lecture (Point process models and aggregated count
+  models)
+- 10:30 - 11:00 coffee break
+- 11:00 - 12:30 Lecture/Hands on session (Point process and aggregated
+  count models)
+- 12:30 - 13:30 Lunch
+- 13:30 - 15:00 Lecture/Hands on session (Multi-likelihood models;
+  hurdle models)
+- 15:00 - 15:30 break
+- 15:30 - 17:00 Lecture/Hands on session (Predictive model assessment)
 
 ## Target audience
 
