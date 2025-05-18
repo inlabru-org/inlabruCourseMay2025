@@ -1,6 +1,6 @@
 Package: inlabruCourseMay2025
 Title: Course Materials for Edinburgh inlabru Course 19-20 May 2025
-Version: 0.0.1.9000
+Version: 0.0.2
 Authors@R: 
     person("Finn", "Lindgren", , "finn.lindgren@gmail.com", role = c("aut", "cre"))
 Description: Course Materials for Edinburgh inlabru Course 19-20 May 2025.
@@ -13,9 +13,50 @@ Additional_repositories: https://inla.r-inla-download.org/R/testing, https://inl
 Depends:
     R (>= 4.4),
     inlabru (> 2.12.0),
-    fmesher (> 0.3.0)
+    fmesher (> 0.3.0),
+    methods,
+    stats
 Suggests:
+    dplyr,
+    lifecycle,
+    magrittr,
+    MatrixModels,
+    Matrix,
+    plyr,
+    rlang,
+    sf,
+    tibble,
+    utils,
+    withr,
+    covr,
+    ggplot2,
+    graphics,
+    INLA (>= 23.01.31),
+    knitr,
+    maps,
+    mgcv,
+    patchwork,
+    raster,
+    RColorBrewer,
+    rgl,
+    rmarkdown,
+    scales,
+    scoringRules,
+    shiny,
+    sn,
+    sp (>= 2.1),
+    spatstat.geom,
+    spatstat.data,
+    sphereplot,
+    splancs,
+    terra,
+    tidyterra,
+    testthat (>= 3.2.0),
+    tidyr,
+    dplyr
+    
     INLA,
     knitr,
-    rmarkdown
+    rmarkdown,
+    tidyterra
 VignetteBuilder: knitr
