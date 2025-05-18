@@ -12,6 +12,7 @@ Course Materials for Edinburgh inlabru Course 19-20 May 2025.
 Useful links:
 \itemize{
   \item \url{https://inlabru-org.github.io/inlabruCourseMay2025/}
+  \item \url{https://github.com/inlabru-org/inlabruCourseMay2025/}
 }
 
 }
