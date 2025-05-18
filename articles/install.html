@@ -6,7 +6,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Software installation • inlabruCourseMay2025</title>
-<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- mathjax math --><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script><script>
+  window.MathJax = {
+    chtml: {
+      fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
+    }
+  };
+</script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
@@ -20,7 +26,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">inlabruCourseMay2025</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,9 +42,30 @@
   </ul>
 </li>
 <li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-tutorials" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Tutorials</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-tutorials">
-<li><h6 class="dropdown-header" data-toc-skip>Tutorials</h6></li>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-notes" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Notes</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-notes">
+<li><a class="external-link dropdown-item" href="http://www.maths.ed.ac.uk/~flindgre/inlabruCourseMay2025/inlabruCourseMay2025.pdf">Handwritten notes (pdf) (updated during breaks)</a></li>
+    <li><a class="dropdown-item" href="../articles/lecture_notes.html">Random field and latent models</a></li>
+  </ul>
+</li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-tutorials-day-" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Tutorials Day 1</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-tutorials-day-">
+<li><h6 class="dropdown-header" data-toc-skip>Random fields</h6></li>
+    <li><a class="dropdown-item" href="../articles/random_fields_1d.html">1D models</a></li>
+    <li><a class="dropdown-item" href="../articles/random_fields_2d.html">2D models</a></li>
+    <li><a class="dropdown-item" href="../articles/aggregated_counts_1d.html">Aggregated count models</a></li>
+    <li><a class="dropdown-item" href="../articles/nonseparable_spacetime.html">Non-separable covariance</a></li>
+  </ul>
+</li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-tutorials-day-" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Tutorials Day 2</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-tutorials-day-">
+<li><h6 class="dropdown-header" data-toc-skip>Point processes</h6></li>
+    <li><a class="dropdown-item" href="../articles/2d_lgcp_covars.html">Spatial covariates</a></li>
+    <li><a class="dropdown-item" href="../articles/2d_lgcp_spatiotemporal.html">Spatio-temporal point processes</a></li>
+    <li><a class="external-link dropdown-item" href="https://inlabru-org.github.io/inlabru/articles/zip_zap_models.html">Multi-likelihood models; zero-inflated models</a></li>
+    <li><a class="external-link dropdown-item" href="https://inlabru-org.github.io/inlabru/articles/svc.html">Spatially varying coefficients</a></li>
   </ul>
 </li>
       </ul>
@@ -46,6 +73,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/inlabru-org/inlabruCourseMay2025/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -62,7 +90,7 @@
       <h1>Software installation</h1>
             
       
-
+      <small class="dont-index">Source: <a href="https://github.com/inlabru-org/inlabruCourseMay2025/blob/main/vignettes/install.Rmd" class="external-link"><code>vignettes/install.Rmd</code></a></small>
       <div class="d-none name"><code>install.Rmd</code></div>
     </div>
 
@@ -102,9 +130,9 @@ may need to upgrade to the <code>"testing"</code> version, which
 typically contains bug fixes and improvements, and is the version
 <code>inlabru</code> is tested against.</p>
 <p>The third repository is optional, and gives you easy access to the
-development versions of <code>inlabru</code> (2.12.0 or later) and
-<code>fmesher</code> (0.3.0 or later, which is a package dependency of
-<code>INLA</code> and <code>inlabru</code>). Most of the tutorials in
+development versions of <code>inlabru</code> (2.12.0.9016 or later) and
+<code>fmesher</code> (0.3.0.9008 or later, which is a package dependency
+of <code>INLA</code> and <code>inlabru</code>). Most of the tutorials in
 this course will work with the CRAN versions of <code>inlabru</code> and
 <code>fmesher</code>, <code>2.12.0</code>, but installing the
 development version from <code>r-universe.dev</code> is recommended, and
@@ -146,7 +174,7 @@ running</p>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Time used:</span></span>
-<span><span class="co">#&gt;     Pre = 0.366, Running = 0.176, Post = 0.0143, Total = 0.557 </span></span>
+<span><span class="co">#&gt;     Pre = 0.376, Running = 0.243, Post = 0.0141, Total = 0.633 </span></span>
 <span><span class="co">#&gt; Fixed effects:</span></span>
 <span><span class="co">#&gt;               mean    sd 0.025quant 0.5quant 0.975quant   mode kld</span></span>
 <span><span class="co">#&gt; (Intercept) 10.071 0.105      9.865   10.071     10.277 10.071   0</span></span>
@@ -161,11 +189,11 @@ running</p>
 <span><span class="co">#&gt;  is computed </span></span>
 <span><span class="co">#&gt; Posterior summaries for the linear predictor and the fitted values are computed</span></span>
 <span><span class="co">#&gt; (Posterior marginals needs also 'control.compute=list(return.marginals.predictor=TRUE)')</span></span></code></pre></div>
-<p>If the simple <code>inla()</code> call fails with a crash, you may
+<p>If the simple <code><a href="https://rdrr.io/pkg/INLA/man/inla.html" class="external-link">inla()</a></code> call fails with a crash, you may
 need to install different <code>inla</code> binaries for your
 hardware/software combination, with
 <code><a href="https://rdrr.io/pkg/INLA/man/binary.install.html" class="external-link">INLA::inla.binary.install()</a></code>.</p>
-<p>When <code>inla()</code> works, you can check that
+<p>When <code><a href="https://rdrr.io/pkg/INLA/man/inla.html" class="external-link">inla()</a></code> works, you can check that
 <code>inlabru</code> is installed correctly by running the same model in
 <code>inlabru</code>:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
@@ -174,19 +202,20 @@ hardware/software combination, with
 <span>  data <span class="op">=</span> <span class="va">df</span></span>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span>
-<span><span class="co">#&gt; inlabru version: 2.12.0</span></span>
-<span><span class="co">#&gt; INLA version: 25.05.07</span></span>
+<span><span class="co">#&gt; inlabru version: 2.12.0.9016</span></span>
+<span><span class="co">#&gt; INLA version: 25.05.18-1</span></span>
 <span><span class="co">#&gt; Components:</span></span>
 <span><span class="co">#&gt; Intercept: main = linear(1), group = exchangeable(1L), replicate = iid(1L), NULL</span></span>
-<span><span class="co">#&gt; Likelihoods:</span></span>
+<span><span class="co">#&gt; Observation models:</span></span>
 <span><span class="co">#&gt;   Family: 'gaussian'</span></span>
 <span><span class="co">#&gt;     Tag: ''</span></span>
 <span><span class="co">#&gt;     Data class: 'data.frame'</span></span>
 <span><span class="co">#&gt;     Response class: 'numeric'</span></span>
 <span><span class="co">#&gt;     Predictor: y ~ .</span></span>
+<span><span class="co">#&gt;     Additive/Linear: TRUE/TRUE</span></span>
 <span><span class="co">#&gt;     Used components: effects[Intercept], latent[]</span></span>
 <span><span class="co">#&gt; Time used:</span></span>
-<span><span class="co">#&gt;     Pre = 0.217, Running = 0.182, Post = 0.037, Total = 0.436 </span></span>
+<span><span class="co">#&gt;     Pre = 0.227, Running = 0.249, Post = 0.0363, Total = 0.512 </span></span>
 <span><span class="co">#&gt; Fixed effects:</span></span>
 <span><span class="co">#&gt;             mean    sd 0.025quant 0.5quant 0.975quant   mode kld</span></span>
 <span><span class="co">#&gt; Intercept 10.071 0.105      9.865   10.071     10.277 10.071   0</span></span>
