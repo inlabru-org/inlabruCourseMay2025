@@ -1,6 +1,6 @@
 Package: inlabruCourseMay2025
 Title: Course Materials for Edinburgh inlabru Course 19-20 May 2025
-Version: 0.0.0.9000
+Version: 0.0.1.9000
 Authors@R: 
     person("Finn", "Lindgren", , "finn.lindgren@gmail.com", role = c("aut", "cre"))
 Description: Course Materials for Edinburgh inlabru Course 19-20 May 2025.

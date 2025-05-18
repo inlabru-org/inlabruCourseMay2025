@@ -68,25 +68,31 @@ with additional features
 - 09:30 - 10:30 Lecture (Spatial modelling with random fields)
 - 10:30 - 11:00 coffee break
 - 11:00 - 12:30 Lecture/Hands on session (Introduction to
-  `INLA`/`inlabru`/`fmesher`)
+  `INLA`/`inlabru`/`fmesher`)\[articles/random_fields_1d.html\]
 - 12:30 - 13:30 Lunch
-- 13:30 - 15:00 Lecture/Hands on session (Temporal and spatial models
-  for point-referenced data)
+- 13:30 - 15:00 Lecture/Hands on session (Spatial models for
+  point-referenced data)\[articles/random_fields_2d.html\]
 - 15:00 - 15:30 break
-- 15:30 - 17:00 Lecture/Hands on session (Non-linear predictors)
+- 15:30 - 17:00 Lecture/Hands on session (Aggregated counts and
+  non-linear predictors)\[articles/aggregated_counts_1d.html\]
+  (Non-separable space-time)\[articles/nonseparable_spacetime.html\]
 
 ### Tuesday 20/5
 
-- 09:30 - 10:30 Lecture (Point process models and aggregated count
-  models)
+- 09:30 - 10:30 Lecture (Point process models)
 - 10:30 - 11:00 coffee break
-- 11:00 - 12:30 Lecture/Hands on session (Point process and aggregated
-  count models)
+- 11:00 - 12:30 Lecture/Hands on session (Spatial
+  covariates)\[2d_lgcp_covars.html\]
+  (Space-time)\[2d_lgcp_spatiotemporal.html\]
 - 12:30 - 13:30 Lunch
 - 13:30 - 15:00 Lecture/Hands on session (Multi-likelihood models;
-  hurdle models)
+  hurdle
+  models)\[<https://inlabru-org.github.io/inlabru/articles/zip_zap_models.html>\]
 - 15:00 - 15:30 break
-- 15:30 - 17:00 Lecture/Hands on session (Predictive model assessment)
+- 15:30 - 17:00 Lecture/Hands on session (Predictive model
+  assessment)\[<https://inlabru-org.github.io/inlabru/articles/prediction_scores.html>\]
+  (Spatially varying
+  coefficients)\[<https://inlabru-org.github.io/inlabru/articles/zip_zap_models.html>\]
 
 ## Target audience
 

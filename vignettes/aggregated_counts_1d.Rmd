@@ -1,0 +1,250 @@
+---
+title: "Random Fields in One Dimension"
+author: "Finn Lindgren"
+date: "Generated on `r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Random Fields in One Dimension}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  cache = TRUE,
+  collapse = TRUE,
+  comment = "#>",
+  dev = "png",
+  dev.args = list(type = "cairo-png"),
+  fig.width = 7,
+  fig.height = 5
+)
+library(inlabru)
+inla_available <- inlabru::bru_safe_inla(
+  multicore = interactive(),
+  quietly = TRUE
+)
+```
+
+This tutorial modifies the [1D random fields](random_fields_1d.html) tutorial
+to properly handle aggregated counts.
+
+Setting things up
+----------------
+
+```{r results="hide",warning=FALSE,message=FALSE,eval=inla_available}
+library(INLA)
+library(inlabru)
+library(mgcv)
+library(ggplot2)
+library(fmesher)
+library(patchwork)
+```
+
+Make a shortcut to a nicer colour scale:
+```{r results="hide",warning=FALSE,message=FALSE,eval=inla_available}
+colsc <- function(...) {
+  scale_fill_gradientn(
+    colours = rev(RColorBrewer::brewer.pal(11, "RdYlBu")),
+    limits = range(..., na.rm = TRUE)
+  )
+}
+```
+
+
+Get the data
+-----------------------------------
+
+Load the data and rename the countdata object to `cd` (just because '`cd`'
+is less to type than '`countdata2`'.):
+
+```{r results="hide",warning=FALSE,message=FALSE,eval=inla_available}
+data(Poisson2_1D)
+cd <- countdata2
+```
+
+Take a look at the count data.
+
+```{r warning=FALSE,message=FALSE,eval=inla_available}
+cd
+ggplot(cd) +
+  geom_point(aes(x, y = count)) +
+  ylim(0, max(cd$count))
+```
+
+_Tip_: `RStudio > Help > Cheatsheets > Data visualisation with ggplot2` is a useful 
+reference for `ggplot2` syntax.
+
+
+
+Fitting an SPDE model with inlabru
+-----------------------------------
+Make mesh. To avoid boundary effects in the region of interest, let the
+mesh extend outside the data range.
+
+```{r,eval=inla_available}
+x <- seq(-10, 65, by = 0.5) # this sets mesh points - try others if you like
+(mesh1D <- fm_mesh_1d(x, degree = 2, boundary = "free"))
+```
+
+
+### Using function `bru( )` to fit to aggregated count data
+
+We need to specify model components and a model formula in order to fit it.
+This can be done inside the call to `bru( )` but that is a bit messy, so we'll
+store it in `comp` first and then pass that to `bru( )`.
+
+Our response variable in the data frame `cd` is called `count` so the model
+specification needs to have that on the left of the `~`. We add an intercept
+component with `+ Intercept(1)` on the right hand side (all the models we use
+have intercepts), and because we want to fit a Gaussian random field (GRF), it
+must have a GRF specification. In `inlabru` the GRF specification is a function,
+which allows the GRF to be calculated at any point in space while `inlabru` is
+doing its calculations.
+
+The user gets to name the GRF function. The syntax is
+`myname(input, model= ...)`, where:
+
+* 'myname' is whatever you want to call the GRF (we called it `field` below);
+* `input` specifies the coordinates in which the GRF or SPDE 'lives'. Here we
+  are working in one dimension, and we called that dimension `x` when we set
+  up the data set.
+* `model=` designates the type of effect, here an SPDE model object from the
+  `INLA` function `inla.spde2.pcmatern( )`, which requires a mesh to be passed
+  to it, so we pass it the 1D mesh that we created above, `mesh1D`.
+
+For models that only sums all the model components, we don't need to specify the
+full predictor formula. Instead, we can provide the name of the output to the
+left of the `~` in the component specification, and "." on the right hand side,
+which will cause it to add all components (unless a subset is selected via the
+`used` argument to `bru_obs()`).
+
+```{r,eval=inla_available}
+the_spde <- inla.spde2.pcmatern(mesh1D,
+  prior.range = c(1, 0.01),
+  prior.sigma = c(1, 0.01)
+)
+
+comp <- ~ field(x, model = the_spde) + Intercept(1, prec.linear = 1 / 2^2)
+```
+
+Approximate model pretending that the counts are measured at individual points:
+
+```{r,eval=inla_available}
+fit2.bru <- bru(
+  comp,
+  bru_obs(
+    count ~ .,
+    data = cd,
+    family = "poisson",
+    E = exposure
+  )
+)
+
+summary(fit2.bru)
+```
+
+Model that takes into account that the expected counts are integrals:
+
+```{r,eval=inla_available}
+data_integration <- fm_int(
+  mesh1D,
+  samplers = with(cd, cbind(x - exposure/2, x + exposure/2))
+)
+if (packageVersion("inlabru") >= "2.12.0.9016") {
+  # From 2.12.0.9016:
+  fit2block.bru <- bru(
+    comp,
+    bru_obs(
+      count ~ .,
+      data = data_integration,
+      response_data = cd,
+      aggregate = "logsumexp",
+      family = "poisson"
+    )
+  )
+} else {
+  # Before 2.12.0.9016:
+  fit2block.bru <- bru(
+    comp,
+    bru_obs(
+      count ~ fm_block_logsumexp_eval(
+        block = .block,
+        weights = weight,
+        n_block = NROW(cd),
+        values = Intercept + field
+      ),
+      allow_combine = TRUE,
+      data = data_integration,
+      response_data = cd,
+      family = "poisson"
+    )
+  )
+}
+
+summary(fit2block.bru)
+```
+
+Predict the `lambda` function
+(the data argument must be a data frame, see `?predict.bru`):
+
+```{r,eval=inla_available}
+x4pred <- data.frame(x = seq(0, 55, by = 0.1))
+pred2.bru <- predict(fit2.bru,
+  x4pred,
+  x ~ exp(field + Intercept),
+  n.samples = 1000
+)
+pred2block.bru <- predict(fit2.bru,
+  x4pred,
+  x ~ exp(field + Intercept),
+  n.samples = 1000
+)
+```
+
+Let's do a plot to compare the fitted model to the true model. The true `lambda`
+is given by the function `lambda2_1D()`, and the expected
+counts of the true model are stored in the variable `E_nc2` which comes with the
+dataset `Poisson2_1D`. For ease of use in plotting with `ggplot2` (which needs a
+data frame), we create a data frame which we call `true.lambda`, containing `x`-
+and `y` variables as shown below.
+
+```{r,eval=inla_available}
+true.lambda <- data.frame(x = x4pred$x, lambda = lambda2_1D(x4pred$x))
+```
+
+These `ggplot2` commands should generate the plot shown below. It shows the true
+intensities as a blue line, the observed intensities as black
+dots, and the fitted intensity function as a red curve, with 95% credible
+intervals shown as a light bands about the curves.
+
+```{r,eval=inla_available}
+ggplot() +
+  gg(pred2.bru) +
+  gg(pred2block.bru,mapping = aes(fill="red"), alpha=0.2, color = "red") +
+  geom_point(data = cd, aes(x = x, y = count / exposure), cex = 2) +
+  geom_line(data = true.lambda, aes(x, lambda), col = "blue") +
+  coord_cartesian(xlim = c(0, 55), ylim = c(0, 6)) +
+  xlab("x") +
+  ylab("Intensity")
+```
+
+
+We can see that for this toy problem, using the proper aggregated count
+observation model doesn't make a noticeable difference to the fitted model.
+For more realistic settings, in particular those involving high resolution
+covariates, the distinction becomes important, and the the integration scheme
+to resolve small features.
+
+The computational time is available from `bru_timings()`:
+```{r,eval=inla_available}
+bru_timings(fit2.bru)
+bru_timings(fit2block.bru)
+bru_timings_plot(fit2block.bru)
+```
+
+To check the iterative method convergence, use `bru_convergence_plot()`:
+```{r,eval=inla_available}
+bru_convergence_plot(fit2block.bru)
+```
+

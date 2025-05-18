@@ -2,10 +2,11 @@ url: https://inlabru-org.github.io/inlabruCourseMay2025/
 template:
   bootstrap: 5
   bootswatch: cosmo
+  math-rendering: "mathjax"
 
 navbar:
   structure:
-    left: [home, intro, installation, tutorials]
+    left: [home, intro, installation, notes, tutorials-day1, tutorials-day2]
     right: [search, github]
   components:
     installation:
@@ -13,8 +14,34 @@ navbar:
       menu:
         - text: Software installation
           href: articles/install.html
-    tutorials:
-      text: Tutorials
+    notes:
+      text: Notes
       menu:
-      - text: Tutorials
-
+        - text: Handwritten notes (pdf) (updated during breaks)
+          href: http://www.maths.ed.ac.uk/~flindgre/inlabruCourseMay2025/inlabruCourseMay2025.pdf
+        - text: Random field and latent models
+          href: articles/lecture_notes.html
+    tutorials-day1:
+      text: Tutorials Day 1
+      menu:
+        - text: Random fields
+        - text: 1D models
+          href: articles/random_fields_1d.html
+        - text: 2D models
+          href: articles/random_fields_2d.html
+        - text: Aggregated count models
+          href: articles/aggregated_counts_1d.html
+        - text: Non-separable covariance
+          href: articles/nonseparable_spacetime.html
+    tutorials-day2:
+      text: Tutorials Day 2
+      menu:
+        - text: Point processes
+        - text: Spatial covariates
+          href: articles/2d_lgcp_covars.html
+        - text: Spatio-temporal point processes
+          href: articles/2d_lgcp_spatiotemporal.html
+        - text: Multi-likelihood models; zero-inflated models
+          href: https://inlabru-org.github.io/inlabru/articles/zip_zap_models.html
+        - text: Spatially varying coefficients
+          href: https://inlabru-org.github.io/inlabru/articles/svc.html
