@@ -39,7 +39,7 @@ visualisation. Diagnosing modelling problems.
 
 ## Instructor
 
-Prof [Finn Lindgren](https:://www.maths.ed.ac.uk/~flindgre) is Chair of
+Prof [Finn Lindgren](https://www.maths.ed.ac.uk/~flindgre/) is Chair of
 Statistics in the School of Mathematics, University of Edinburgh.
 
 His research focuses on spatial and spatio-temporal stochastic models,
