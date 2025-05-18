@@ -38,9 +38,9 @@ navbar:
       menu:
         - text: Point processes
         - text: Spatial covariates
-          href: articles/2d_lgcp_covars.html
+          href: articles/lgcp_2d_covars.html
         - text: Spatio-temporal point processes
-          href: articles/2d_lgcp_spatiotemporal.html
+          href: articles/lgcp_2d_spatiotemporal.html
         - text: Multi-likelihood models; zero-inflated models
           href: https://inlabru-org.github.io/inlabru/articles/zip_zap_models.html
         - text: Spatially varying coefficients
