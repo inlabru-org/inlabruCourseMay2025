@@ -53,10 +53,4 @@ Suggests:
     tidyterra,
     testthat (>= 3.2.0),
     tidyr,
-    dplyr
-    
-    INLA,
-    knitr,
-    rmarkdown,
-    tidyterra
 VignetteBuilder: knitr
