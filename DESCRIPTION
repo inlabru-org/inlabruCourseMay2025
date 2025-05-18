@@ -52,5 +52,5 @@ Suggests:
     terra,
     tidyterra,
     testthat (>= 3.2.0),
-    tidyr,
+    tidyr
 VignetteBuilder: knitr
