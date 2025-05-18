@@ -3,6 +3,8 @@
 
 ## usethis namespace: start
 ## usethis namespace: end
+#' @import methods
+#' @import stats
 NULL
 
 get_exports_pkg <- function(pkg) {

@@ -1,10 +1,10 @@
 ---
-title: "Random Fields in One Dimension"
+title: "Aggregated count models in one dimension"
 author: "Finn Lindgren"
 date: "Generated on `r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Random Fields in One Dimension}
+  %\VignetteIndexEntry{Aggregated count models in one dimension}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
