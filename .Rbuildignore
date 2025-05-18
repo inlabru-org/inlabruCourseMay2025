@@ -1,8 +1,12 @@
 ^inlabru-course-may-2025\.Rproj$
 ^\.Rproj\.user$
+^LICENSE$
 ^LICENSE\.md$
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
 ^\.github$
 ^update_notes$
+^vignettes/.*_cache
+^.*\.Rproj$
+^README\.Rmd$

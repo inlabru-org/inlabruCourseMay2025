@@ -9,10 +9,13 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 URL: https://inlabru-org.github.io/inlabruCourseMay2025/
+Additional_repositories: https://inla.r-inla-download.org/R/testing
+Depends:
+    R (>= 4.4),
+    inlabru (> 2.12.0),
+    fmesher (> 0.3.0)
 Suggests:
     INLA,
-    inlabru,
-    fmesher,
     knitr,
     rmarkdown
 VignetteBuilder: knitr
