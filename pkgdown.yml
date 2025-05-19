@@ -2,15 +2,15 @@ pandoc: 3.1.11
 pkgdown: 2.1.2
 pkgdown_sha: ~
 articles:
-  2d_lgcp_covars: 2d_lgcp_covars.html
-  2d_lgcp_spatiotemporal: 2d_lgcp_spatiotemporal.html
   aggregated_counts_1d: aggregated_counts_1d.html
   install: install.html
   lecture_notes: lecture_notes.html
+  lgcp_2d_covars: lgcp_2d_covars.html
+  lgcp_2d_spatiotemporal: lgcp_2d_spatiotemporal.html
   nonseparable_spacetime: nonseparable_spacetime.html
   random_fields_1d: random_fields_1d.html
   random_fields_2d: random_fields_2d.html
-last_built: 2025-05-18T23:16Z
+last_built: 2025-05-18T23:52Z
 urls:
   reference: https://inlabru-org.github.io/inlabruCourseMay2025/reference
   article: https://inlabru-org.github.io/inlabruCourseMay2025/articles

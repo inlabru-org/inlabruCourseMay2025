@@ -62,8 +62,8 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-tutorials-day-" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Tutorials Day 2</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-tutorials-day-">
 <li><h6 class="dropdown-header" data-toc-skip>Point processes</h6></li>
-    <li><a class="dropdown-item" href="../articles/2d_lgcp_covars.html">Spatial covariates</a></li>
-    <li><a class="dropdown-item" href="../articles/2d_lgcp_spatiotemporal.html">Spatio-temporal point processes</a></li>
+    <li><a class="dropdown-item" href="../articles/lgcp_2d_covars.html">Spatial covariates</a></li>
+    <li><a class="dropdown-item" href="../articles/lgcp_2d_spatiotemporal.html">Spatio-temporal point processes</a></li>
     <li><a class="external-link dropdown-item" href="https://inlabru-org.github.io/inlabru/articles/zip_zap_models.html">Multi-likelihood models; zero-inflated models</a></li>
     <li><a class="external-link dropdown-item" href="https://inlabru-org.github.io/inlabru/articles/svc.html">Spatially varying coefficients</a></li>
   </ul>
@@ -241,7 +241,7 @@ individual points:</p>
 <span><span class="co">#&gt;     Additive/Linear: TRUE/TRUE</span></span>
 <span><span class="co">#&gt;     Used components: effects[field, Intercept], latent[]</span></span>
 <span><span class="co">#&gt; Time used:</span></span>
-<span><span class="co">#&gt;     Pre = 0.485, Running = 0.451, Post = 0.0903, Total = 1.03 </span></span>
+<span><span class="co">#&gt;     Pre = 0.479, Running = 0.434, Post = 0.0893, Total = 1 </span></span>
 <span><span class="co">#&gt; Fixed effects:</span></span>
 <span><span class="co">#&gt;            mean    sd 0.025quant 0.5quant 0.975quant  mode kld</span></span>
 <span><span class="co">#&gt; Intercept 0.626 0.479     -0.437    0.658       1.52 0.729   0</span></span>
@@ -319,7 +319,7 @@ integrals:</p>
 <span><span class="co">#&gt;     Additive/Linear: FALSE/FALSE</span></span>
 <span><span class="co">#&gt;     Used components: effects[field, Intercept], latent[]</span></span>
 <span><span class="co">#&gt; Time used:</span></span>
-<span><span class="co">#&gt;     Pre = 0.346, Running = 0.462, Post = 0.0821, Total = 0.89 </span></span>
+<span><span class="co">#&gt;     Pre = 0.344, Running = 0.455, Post = 0.0817, Total = 0.88 </span></span>
 <span><span class="co">#&gt; Fixed effects:</span></span>
 <span><span class="co">#&gt;            mean    sd 0.025quant 0.5quant 0.975quant  mode kld</span></span>
 <span><span class="co">#&gt; Intercept 0.627 0.472     -0.419    0.659      1.508 0.729   0</span></span>
@@ -395,20 +395,20 @@ the integration scheme to resolve small features.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/bru_timings.html" class="external-link">bru_timings</a></span><span class="op">(</span><span class="va">fit2.bru</span><span class="op">)</span></span>
 <span><span class="co">#&gt;         Task Iteration       Time     System    Elapsed</span></span>
-<span><span class="co">#&gt; 1 Preprocess         0 0.358 secs 0.024 secs 0.369 secs</span></span>
-<span><span class="co">#&gt; 2 Preprocess         1 0.103 secs 0.010 secs 0.107 secs</span></span>
-<span><span class="co">#&gt; 3 Run inla()         1 0.980 secs 0.140 secs 1.057 secs</span></span>
+<span><span class="co">#&gt; 1 Preprocess         0 0.360 secs 0.029 secs 0.374 secs</span></span>
+<span><span class="co">#&gt; 2 Preprocess         1 0.103 secs 0.012 secs 0.110 secs</span></span>
+<span><span class="co">#&gt; 3 Run inla()         1 0.974 secs 0.132 secs 1.032 secs</span></span>
 <span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/bru_timings.html" class="external-link">bru_timings</a></span><span class="op">(</span><span class="va">fit2block.bru</span><span class="op">)</span></span>
 <span><span class="co">#&gt;          Task Iteration       Time     System    Elapsed</span></span>
-<span><span class="co">#&gt; 1  Preprocess         0 0.100 secs 0.025 secs 0.115 secs</span></span>
-<span><span class="co">#&gt; 2  Preprocess         1 0.201 secs 0.004 secs 0.202 secs</span></span>
-<span><span class="co">#&gt; 3  Run inla()         1 0.707 secs 0.038 secs 0.786 secs</span></span>
-<span><span class="co">#&gt; 4 Line search         1 0.015 secs 0.000 secs 0.014 secs</span></span>
-<span><span class="co">#&gt; 5  Preprocess         2 0.208 secs 0.000 secs 0.209 secs</span></span>
-<span><span class="co">#&gt; 6  Run inla()         2 0.666 secs 0.066 secs 0.782 secs</span></span>
-<span><span class="co">#&gt; 7 Line search         2 0.226 secs 0.000 secs 0.227 secs</span></span>
-<span><span class="co">#&gt; 8  Preprocess         3 0.167 secs 0.000 secs 0.167 secs</span></span>
-<span><span class="co">#&gt; 9  Run inla()         3 0.897 secs 0.072 secs 0.914 secs</span></span>
+<span><span class="co">#&gt; 1  Preprocess         0 0.099 secs 0.023 secs 0.110 secs</span></span>
+<span><span class="co">#&gt; 2  Preprocess         1 0.202 secs 0.000 secs 0.202 secs</span></span>
+<span><span class="co">#&gt; 3  Run inla()         1 0.662 secs 0.072 secs 0.750 secs</span></span>
+<span><span class="co">#&gt; 4 Line search         1 0.014 secs 0.000 secs 0.014 secs</span></span>
+<span><span class="co">#&gt; 5  Preprocess         2 0.206 secs 0.000 secs 0.206 secs</span></span>
+<span><span class="co">#&gt; 6  Run inla()         2 0.671 secs 0.052 secs 0.750 secs</span></span>
+<span><span class="co">#&gt; 7 Line search         2 0.224 secs 0.000 secs 0.224 secs</span></span>
+<span><span class="co">#&gt; 8  Preprocess         3 0.167 secs 0.000 secs 0.168 secs</span></span>
+<span><span class="co">#&gt; 9  Run inla()         3 0.900 secs 0.060 secs 0.904 secs</span></span>
 <span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/bru_timings_plot.html" class="external-link">bru_timings_plot</a></span><span class="op">(</span><span class="va">fit2block.bru</span><span class="op">)</span></span></code></pre></div>
 <p><img src="aggregated_counts_1d_files/figure-html/unnamed-chunk-12-1.png" width="672"></p>
 <p>To check the iterative method convergence, use
