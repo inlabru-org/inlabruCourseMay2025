@@ -195,7 +195,7 @@ pred2.bru <- predict(fit2.bru,
   x ~ exp(field + Intercept),
   n.samples = 1000
 )
-pred2block.bru <- predict(fit2.bru,
+pred2block.bru <- predict(fit2block.bru,
   x4pred,
   x ~ exp(field + Intercept),
   n.samples = 1000
