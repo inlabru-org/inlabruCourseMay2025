@@ -61,7 +61,8 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-tutorials-day-" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Tutorials Day 2</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-tutorials-day-">
-<li><h6 class="dropdown-header" data-toc-skip>Point processes</h6></li>
+<li><a class="external-link dropdown-item" href="https://inlabru-org.github.io/inlabru/articles/2d_lgcp.html">Poisson Point processes</a></li>
+    <li><a class="external-link dropdown-item" href="https://inlabru-org.github.io/inlabru/articles/2d_lgcp_distancesampling.html">Distance sampling transect surveys</a></li>
     <li><a class="dropdown-item" href="../articles/lgcp_2d_covars.html">Spatial covariates</a></li>
     <li><a class="dropdown-item" href="../articles/lgcp_2d_spatiotemporal.html">Spatio-temporal point processes</a></li>
     <li><a class="external-link dropdown-item" href="https://inlabru-org.github.io/inlabru/articles/zip_zap_models.html">Multi-likelihood models; zero-inflated models</a></li>
@@ -241,7 +242,7 @@ individual points:</p>
 <span><span class="co">#&gt;     Additive/Linear: TRUE/TRUE</span></span>
 <span><span class="co">#&gt;     Used components: effects[field, Intercept], latent[]</span></span>
 <span><span class="co">#&gt; Time used:</span></span>
-<span><span class="co">#&gt;     Pre = 0.479, Running = 0.457, Post = 0.0894, Total = 1.03 </span></span>
+<span><span class="co">#&gt;     Pre = 0.515, Running = 0.493, Post = 0.0935, Total = 1.1 </span></span>
 <span><span class="co">#&gt; Fixed effects:</span></span>
 <span><span class="co">#&gt;            mean    sd 0.025quant 0.5quant 0.975quant  mode kld</span></span>
 <span><span class="co">#&gt; Intercept 0.626 0.479     -0.437    0.658       1.52 0.729   0</span></span>
@@ -319,7 +320,7 @@ integrals:</p>
 <span><span class="co">#&gt;     Additive/Linear: FALSE/FALSE</span></span>
 <span><span class="co">#&gt;     Used components: effects[field, Intercept], latent[]</span></span>
 <span><span class="co">#&gt; Time used:</span></span>
-<span><span class="co">#&gt;     Pre = 0.345, Running = 0.461, Post = 0.0815, Total = 0.887 </span></span>
+<span><span class="co">#&gt;     Pre = 0.358, Running = 0.48, Post = 0.0822, Total = 0.92 </span></span>
 <span><span class="co">#&gt; Fixed effects:</span></span>
 <span><span class="co">#&gt;            mean    sd 0.025quant 0.5quant 0.975quant  mode kld</span></span>
 <span><span class="co">#&gt; Intercept 0.627 0.472     -0.419    0.659      1.508 0.729   0</span></span>
@@ -333,11 +334,11 @@ integrals:</p>
 <span><span class="co">#&gt; Range for field 33.590 19.718      9.978   28.954      84.61 21.549</span></span>
 <span><span class="co">#&gt; Stdev for field  0.595  0.218      0.279    0.559       1.12  0.492</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Deviance Information Criterion (DIC) ...............: 59.02</span></span>
-<span><span class="co">#&gt; Deviance Information Criterion (DIC, saturated) ....: 13.38</span></span>
+<span><span class="co">#&gt; Deviance Information Criterion (DIC) ...............: 59.01</span></span>
+<span><span class="co">#&gt; Deviance Information Criterion (DIC, saturated) ....: 13.37</span></span>
 <span><span class="co">#&gt; Effective number of parameters .....................: 5.01</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Watanabe-Akaike information criterion (WAIC) ...: 57.29</span></span>
+<span><span class="co">#&gt; Watanabe-Akaike information criterion (WAIC) ...: 57.28</span></span>
 <span><span class="co">#&gt; Effective number of parameters .................: 2.57</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Marginal log-Likelihood:  -36.58 </span></span>
@@ -395,20 +396,20 @@ the integration scheme to resolve small features.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/bru_timings.html" class="external-link">bru_timings</a></span><span class="op">(</span><span class="va">fit2.bru</span><span class="op">)</span></span>
 <span><span class="co">#&gt;         Task Iteration       Time     System    Elapsed</span></span>
-<span><span class="co">#&gt; 1 Preprocess         0 0.356 secs 0.025 secs 0.370 secs</span></span>
-<span><span class="co">#&gt; 2 Preprocess         1 0.104 secs 0.008 secs 0.108 secs</span></span>
-<span><span class="co">#&gt; 3 Run inla()         1 0.961 secs 0.138 secs 1.055 secs</span></span>
+<span><span class="co">#&gt; 1 Preprocess         0 0.414 secs 0.028 secs 0.429 secs</span></span>
+<span><span class="co">#&gt; 2 Preprocess         1 0.111 secs 0.016 secs 0.118 secs</span></span>
+<span><span class="co">#&gt; 3 Run inla()         1 0.994 secs 0.168 secs 1.134 secs</span></span>
 <span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/bru_timings.html" class="external-link">bru_timings</a></span><span class="op">(</span><span class="va">fit2block.bru</span><span class="op">)</span></span>
 <span><span class="co">#&gt;          Task Iteration       Time     System    Elapsed</span></span>
-<span><span class="co">#&gt; 1  Preprocess         0 0.093 secs 0.032 secs 0.112 secs</span></span>
-<span><span class="co">#&gt; 2  Preprocess         1 0.204 secs 0.000 secs 0.204 secs</span></span>
-<span><span class="co">#&gt; 3  Run inla()         1 0.693 secs 0.064 secs 0.771 secs</span></span>
+<span><span class="co">#&gt; 1  Preprocess         0 0.115 secs 0.029 secs 0.132 secs</span></span>
+<span><span class="co">#&gt; 2  Preprocess         1 0.212 secs 0.000 secs 0.212 secs</span></span>
+<span><span class="co">#&gt; 3  Run inla()         1 0.709 secs 0.076 secs 0.808 secs</span></span>
 <span><span class="co">#&gt; 4 Line search         1 0.014 secs 0.000 secs 0.014 secs</span></span>
-<span><span class="co">#&gt; 5  Preprocess         2 0.206 secs 0.000 secs 0.206 secs</span></span>
-<span><span class="co">#&gt; 6  Run inla()         2 0.687 secs 0.054 secs 0.767 secs</span></span>
-<span><span class="co">#&gt; 7 Line search         2 0.227 secs 0.000 secs 0.227 secs</span></span>
-<span><span class="co">#&gt; 8  Preprocess         3 0.168 secs 0.000 secs 0.168 secs</span></span>
-<span><span class="co">#&gt; 9  Run inla()         3 0.902 secs 0.054 secs 0.911 secs</span></span>
+<span><span class="co">#&gt; 5  Preprocess         2 0.214 secs 0.000 secs 0.215 secs</span></span>
+<span><span class="co">#&gt; 6  Run inla()         2 0.690 secs 0.052 secs 0.799 secs</span></span>
+<span><span class="co">#&gt; 7 Line search         2 0.244 secs 0.000 secs 0.244 secs</span></span>
+<span><span class="co">#&gt; 8  Preprocess         3 0.174 secs 0.000 secs 0.174 secs</span></span>
+<span><span class="co">#&gt; 9  Run inla()         3 0.928 secs 0.058 secs 0.945 secs</span></span>
 <span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/bru_timings_plot.html" class="external-link">bru_timings_plot</a></span><span class="op">(</span><span class="va">fit2block.bru</span><span class="op">)</span></span></code></pre></div>
 <p><img src="aggregated_counts_1d_files/figure-html/unnamed-chunk-12-1.png" width="672"></p>
 <p>To check the iterative method convergence, use
