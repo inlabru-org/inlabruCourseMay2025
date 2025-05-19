@@ -36,7 +36,10 @@ navbar:
     tutorials-day2:
       text: Tutorials Day 2
       menu:
-        - text: Point processes
+        - text: Poisson Point processes
+          href: https://inlabru-org.github.io/inlabru/articles/2d_lgcp.html
+        - text: Distance sampling transect surveys
+          href: https://inlabru-org.github.io/inlabru/articles/2d_lgcp_distancesampling.html
         - text: Spatial covariates
           href: articles/lgcp_2d_covars.html
         - text: Spatio-temporal point processes

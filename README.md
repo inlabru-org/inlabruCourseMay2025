@@ -79,15 +79,18 @@ with additional features
 
 ### Tuesday 20/5
 
-- 09:30 - 10:30 Lecture (Point process models)
+- 09:30 - 10:30 Lecture (Point process models) ([Poisson Point
+  processes](https://inlabru-org.github.io/inlabru/articles/2d_lgcp.html))
+  ([Distance sampling transect
+  surveys](https://inlabru-org.github.io/inlabru/articles/2d_lgcp_distancesampling.html))
 - 10:30 - 11:00 coffee break
 - 11:00 - 12:30 Lecture/Hands on session ([Spatial
   covariates](articles/lgcp_2d_covars.html))
   ([Space-time](articles/lgcp_2d_spatiotemporal.html))
 - 12:30 - 13:30 Lunch
 - 13:30 - 15:00 Lecture/Hands on session ([Multi-likelihood models;
-  hurdle
-  models](https://inlabru-org.github.io/inlabru/articles/zip_zap_models.html))
+  hurdle model
+  example](https://inlabru-org.github.io/inlabru/articles/zip_zap_models.html))
 - 15:00 - 15:30 break
 - 15:30 - 17:00 Lecture/Hands on session ([Predictive model
   assessment](https://inlabru-org.github.io/inlabru/articles/prediction_scores.html))
