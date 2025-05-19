@@ -42,9 +42,13 @@ navbar:
           href: https://inlabru-org.github.io/inlabru/articles/2d_lgcp_distancesampling.html
         - text: Spatial covariates
           href: articles/lgcp_2d_covars.html
+        - text: ---
         - text: Spatio-temporal point processes
           href: articles/lgcp_2d_spatiotemporal.html
         - text: Multi-likelihood models; zero-inflated models
           href: https://inlabru-org.github.io/inlabru/articles/zip_zap_models.html
+        - text: ---
+        - text: Predictive model assessment
+          href: https://inlabru-org.github.io/inlabru/articles/prediction_scores.html
         - text: Spatially varying coefficients
           href: https://inlabru-org.github.io/inlabru/articles/svc.html
