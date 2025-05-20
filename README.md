@@ -95,7 +95,7 @@ with additional features
 - 15:30 - 17:00 Lecture/Hands on session ([Predictive model
   assessment](https://inlabru-org.github.io/inlabru/articles/prediction_scores.html))
   ([Spatially varying
-  coefficients](https://inlabru-org.github.io/inlabru/articles/zip_zap_models.html))
+  coefficients](https://inlabru-org.github.io/inlabru/articles/svc.html))
 
 ## Target audience
 
