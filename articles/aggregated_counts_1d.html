@@ -95,7 +95,7 @@
                         <h4 data-toc-skip class="author">Finn
 Lindgren</h4>
             
-            <h4 data-toc-skip class="date">Generated on 2025-05-19</h4>
+            <h4 data-toc-skip class="date">Generated on 2025-05-20</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/inlabru-org/inlabruCourseMay2025/blob/main/vignettes/aggregated_counts_1d.Rmd" class="external-link"><code>vignettes/aggregated_counts_1d.Rmd</code></a></small>
       <div class="d-none name"><code>aggregated_counts_1d.Rmd</code></div>
@@ -245,7 +245,7 @@ individual points:</p>
 <span><span class="co">#&gt;     Additive/Linear: TRUE/TRUE</span></span>
 <span><span class="co">#&gt;     Used components: effects[field, Intercept], latent[]</span></span>
 <span><span class="co">#&gt; Time used:</span></span>
-<span><span class="co">#&gt;     Pre = 0.485, Running = 0.449, Post = 0.09, Total = 1.02 </span></span>
+<span><span class="co">#&gt;     Pre = 0.489, Running = 0.457, Post = 0.0895, Total = 1.04 </span></span>
 <span><span class="co">#&gt; Fixed effects:</span></span>
 <span><span class="co">#&gt;            mean    sd 0.025quant 0.5quant 0.975quant  mode kld</span></span>
 <span><span class="co">#&gt; Intercept 0.626 0.479     -0.437    0.658       1.52 0.729   0</span></span>
@@ -323,7 +323,7 @@ integrals:</p>
 <span><span class="co">#&gt;     Additive/Linear: FALSE/FALSE</span></span>
 <span><span class="co">#&gt;     Used components: effects[field, Intercept], latent[]</span></span>
 <span><span class="co">#&gt; Time used:</span></span>
-<span><span class="co">#&gt;     Pre = 0.347, Running = 0.473, Post = 0.0827, Total = 0.902 </span></span>
+<span><span class="co">#&gt;     Pre = 0.352, Running = 0.472, Post = 0.0798, Total = 0.905 </span></span>
 <span><span class="co">#&gt; Fixed effects:</span></span>
 <span><span class="co">#&gt;            mean    sd 0.025quant 0.5quant 0.975quant  mode kld</span></span>
 <span><span class="co">#&gt; Intercept 0.627 0.472     -0.419    0.659      1.508 0.729   0</span></span>
@@ -337,11 +337,11 @@ integrals:</p>
 <span><span class="co">#&gt; Range for field 33.590 19.718      9.978   28.954      84.61 21.549</span></span>
 <span><span class="co">#&gt; Stdev for field  0.595  0.218      0.279    0.559       1.12  0.492</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Deviance Information Criterion (DIC) ...............: 59.02</span></span>
-<span><span class="co">#&gt; Deviance Information Criterion (DIC, saturated) ....: 13.38</span></span>
+<span><span class="co">#&gt; Deviance Information Criterion (DIC) ...............: 59.01</span></span>
+<span><span class="co">#&gt; Deviance Information Criterion (DIC, saturated) ....: 13.37</span></span>
 <span><span class="co">#&gt; Effective number of parameters .....................: 5.01</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Watanabe-Akaike information criterion (WAIC) ...: 57.29</span></span>
+<span><span class="co">#&gt; Watanabe-Akaike information criterion (WAIC) ...: 57.28</span></span>
 <span><span class="co">#&gt; Effective number of parameters .................: 2.57</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Marginal log-Likelihood:  -36.58 </span></span>
@@ -399,20 +399,20 @@ the integration scheme to resolve small features.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/bru_timings.html" class="external-link">bru_timings</a></span><span class="op">(</span><span class="va">fit2.bru</span><span class="op">)</span></span>
 <span><span class="co">#&gt;         Task Iteration       Time     System    Elapsed</span></span>
-<span><span class="co">#&gt; 1 Preprocess         0 0.355 secs 0.024 secs 0.369 secs</span></span>
-<span><span class="co">#&gt; 2 Preprocess         1 0.102 secs 0.012 secs 0.108 secs</span></span>
-<span><span class="co">#&gt; 3 Run inla()         1 0.977 secs 0.122 secs 1.053 secs</span></span>
+<span><span class="co">#&gt; 1 Preprocess         0 0.386 secs 0.019 secs 0.392 secs</span></span>
+<span><span class="co">#&gt; 2 Preprocess         1 0.102 secs 0.018 secs 0.111 secs</span></span>
+<span><span class="co">#&gt; 3 Run inla()         1 0.983 secs 0.144 secs 1.065 secs</span></span>
 <span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/bru_timings.html" class="external-link">bru_timings</a></span><span class="op">(</span><span class="va">fit2block.bru</span><span class="op">)</span></span>
 <span><span class="co">#&gt;          Task Iteration       Time     System    Elapsed</span></span>
-<span><span class="co">#&gt; 1  Preprocess         0 0.100 secs 0.026 secs 0.114 secs</span></span>
-<span><span class="co">#&gt; 2  Preprocess         1 0.204 secs 0.000 secs 0.204 secs</span></span>
-<span><span class="co">#&gt; 3  Run inla()         1 0.685 secs 0.062 secs 0.767 secs</span></span>
-<span><span class="co">#&gt; 4 Line search         1 0.015 secs 0.000 secs 0.015 secs</span></span>
-<span><span class="co">#&gt; 5  Preprocess         2 0.209 secs 0.000 secs 0.209 secs</span></span>
-<span><span class="co">#&gt; 6  Run inla()         2 0.685 secs 0.056 secs 0.768 secs</span></span>
-<span><span class="co">#&gt; 7 Line search         2 0.229 secs 0.000 secs 0.229 secs</span></span>
-<span><span class="co">#&gt; 8  Preprocess         3 0.170 secs 0.000 secs 0.170 secs</span></span>
-<span><span class="co">#&gt; 9  Run inla()         3 0.918 secs 0.068 secs 0.926 secs</span></span>
+<span><span class="co">#&gt; 1  Preprocess         0 0.099 secs 0.030 secs 0.117 secs</span></span>
+<span><span class="co">#&gt; 2  Preprocess         1 0.203 secs 0.000 secs 0.203 secs</span></span>
+<span><span class="co">#&gt; 3  Run inla()         1 0.672 secs 0.088 secs 0.776 secs</span></span>
+<span><span class="co">#&gt; 4 Line search         1 0.014 secs 0.000 secs 0.014 secs</span></span>
+<span><span class="co">#&gt; 5  Preprocess         2 0.208 secs 0.000 secs 0.208 secs</span></span>
+<span><span class="co">#&gt; 6  Run inla()         2 0.706 secs 0.056 secs 0.777 secs</span></span>
+<span><span class="co">#&gt; 7 Line search         2 0.230 secs 0.000 secs 0.230 secs</span></span>
+<span><span class="co">#&gt; 8  Preprocess         3 0.166 secs 0.002 secs 0.167 secs</span></span>
+<span><span class="co">#&gt; 9  Run inla()         3 0.915 secs 0.058 secs 0.928 secs</span></span>
 <span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/bru_timings_plot.html" class="external-link">bru_timings_plot</a></span><span class="op">(</span><span class="va">fit2block.bru</span><span class="op">)</span></span></code></pre></div>
 <p><img src="aggregated_counts_1d_files/figure-html/unnamed-chunk-12-1.png" width="672"></p>
 <p>To check the iterative method convergence, use
