@@ -26,7 +26,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">inlabruCourseMay2025</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -346,6 +346,11 @@ determined by the correlation length of the process model.</p>
 <span>  boundary <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://inlabru-org.github.io/fmesher/reference/fm_nonconvex_hull_inla.html" class="external-link">fm_nonconvex_hull_inla</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, convex <span class="op">=</span> <span class="fl">5</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  max.edge <span class="op">=</span> <span class="fl">1</span></span>
 <span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: `fm_nonconvex_hull_inla()` was deprecated in fmesher 0.4.0.9002.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Please use the `method` argument of `fm_nonconvex_hull()` instead.</span></span>
+<span><span class="co">#&gt; <span style="color: #555555;">This warning is displayed once every 8 hours.</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;">Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;">generated.</span></span></span>
 <span><span class="co">#&gt; fm_mesh_2d object:</span></span>
 <span><span class="co">#&gt;   Manifold:  R2</span></span>
 <span><span class="co">#&gt;   V / E / T: 233 / 642 / 410</span></span>
@@ -363,11 +368,11 @@ determined by the correlation length of the process model.</p>
 <span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; fm_mesh_2d object:</span></span>
 <span><span class="co">#&gt;   Manifold:  R2</span></span>
-<span><span class="co">#&gt;   V / E / T: 1002 / 2961 / 1960</span></span>
+<span><span class="co">#&gt;   V / E / T: 1064 / 3134 / 2071</span></span>
 <span><span class="co">#&gt;   Euler char.:   1</span></span>
-<span><span class="co">#&gt;   Constraints:   Boundary: 42 boundary edges (1 group: 1), Interior: 88 interior edges (1 group: 1)</span></span>
-<span><span class="co">#&gt;   Bounding box: (-9.999247, 9.999247) x (-9.999247, 9.999247)</span></span>
-<span><span class="co">#&gt;   Basis d.o.f.:  1002</span></span>
+<span><span class="co">#&gt;   Constraints:   Boundary: 55 boundary edges (1 group: 1), Interior: 105 interior edges (1 group: 1)</span></span>
+<span><span class="co">#&gt;   Bounding box: (-9.992483, 9.992483) x (-9.992483, 9.992483)</span></span>
+<span><span class="co">#&gt;   Basis d.o.f.:  1064</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/fmesher/reference/geom_fm.html" class="external-link">geom_fm</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">m2</span><span class="op">)</span></span></code></pre></div>
 <p><img src="lecture_notes_files/figure-html/unnamed-chunk-8-1.png" width="672"></p>
@@ -380,11 +385,11 @@ determined by the correlation length of the process model.</p>
 <span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; fm_mesh_2d object:</span></span>
 <span><span class="co">#&gt;   Manifold:  R2</span></span>
-<span><span class="co">#&gt;   V / E / T: 602 / 1764 / 1163</span></span>
+<span><span class="co">#&gt;   V / E / T: 623 / 1812 / 1190</span></span>
 <span><span class="co">#&gt;   Euler char.:   1</span></span>
-<span><span class="co">#&gt;   Constraints:   Boundary: 39 boundary edges (1 group: 1), Interior: 74 interior edges (1 group: 1)</span></span>
-<span><span class="co">#&gt;   Bounding box: (-9.999247, 9.999247) x (-9.999247, 9.999247)</span></span>
-<span><span class="co">#&gt;   Basis d.o.f.:  602</span></span>
+<span><span class="co">#&gt;   Constraints:   Boundary: 54 boundary edges (1 group: 1), Interior: 73 interior edges (1 group: 1)</span></span>
+<span><span class="co">#&gt;   Bounding box: (-9.992483, 9.992483) x (-9.992483, 9.992483)</span></span>
+<span><span class="co">#&gt;   Basis d.o.f.:  623</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/fmesher/reference/geom_fm.html" class="external-link">geom_fm</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">m3</span><span class="op">)</span></span></code></pre></div>
 <p><img src="lecture_notes_files/figure-html/unnamed-chunk-9-1.png" width="672"></p>
@@ -557,7 +562,7 @@ shorthand for <code>+ covar(covar, model = "linear")</code>.</p>
 <span>  <span class="fu">field</span><span class="op">(</span><span class="va">geometry</span>, model <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/INLA/man/inla.spde2.pcmatern.html" class="external-link">inla.spde2.pcmatern</a></span><span class="op">(</span><span class="va">...</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Here, the component effect is called <code>field</code>, the input is
 the <code>geometry</code> variable from <code>sf</code> data, and the
-mapper is an automatically constructed <code><a href="https://inlabru-org.github.io/inlabru/reference/bru_mapper_fmesher.html" class="external-link">bru_mapper_fmesher()</a></code>
+mapper is an automatically constructed <code><a href="https://inlabru-org.github.io/inlabru/reference/bm_fmesher.html" class="external-link">bru_mapper_fmesher()</a></code>
 mapper for the mesh used in the <code>model</code> definition.</p>
 <p>There are two kinds of mappers; Non-indexed mappers provide raw
 covariate values as input to <code><a href="https://rdrr.io/pkg/INLA/man/f.html" class="external-link">INLA::f()</a></code>, which is used for
@@ -567,7 +572,7 @@ mappers are used to build models on integers or categories.</p>
 model components</a> and the in-depth discussion of the mapper system,
 including how to define more complex fixed effects components
 (<code>model="fixed"</code> together with
-<code><a href="https://inlabru-org.github.io/inlabru/reference/bru_mapper_matrix.html" class="external-link">bru_mapper_matrix()</a></code> )and custom mappers, <a href="https://inlabru-org.github.io/inlabru/articles/bru_mapper.html" class="external-link">Customised
+<code><a href="https://inlabru-org.github.io/inlabru/reference/bm_matrix.html" class="external-link">bru_mapper_matrix()</a></code> )and custom mappers, <a href="https://inlabru-org.github.io/inlabru/articles/bru_mapper.html" class="external-link">Customised
 model components with the <code>bru_mapper</code> system</a>.</p>
 </div>
 <div class="section level4">
@@ -663,8 +668,8 @@ done using a component marginal transformation mapper, see below.</p>
 <div class="section level4">
 <h4 id="aggregation">Aggregation<a class="anchor" aria-label="anchor" href="#aggregation"></a>
 </h4>
-<p><code><a href="https://inlabru-org.github.io/inlabru/reference/bru_mapper_aggregate.html" class="external-link">bru_mapper_aggregate()</a></code> and
-<code><a href="https://inlabru-org.github.io/inlabru/reference/bru_mapper_logsumexp.html" class="external-link">bru_mapper_logsumexp()</a></code> are aggregation mappers for linear
+<p><code><a href="https://inlabru-org.github.io/inlabru/reference/bm_aggregate.html" class="external-link">bru_mapper_aggregate()</a></code> and
+<code><a href="https://inlabru-org.github.io/inlabru/reference/bm_logsumexp.html" class="external-link">bru_mapper_logsumexp()</a></code> are aggregation mappers for linear
 and nonlinear aggregation functions, respectively, with averaging or
 total sum/integral aggregation. From <code>inlabru</code> version
 <code>2.12.0.9013</code>, the first method can be used to construct all
@@ -681,7 +686,7 @@ calling <code>ibm_eval(mapper, ...)</code>.</p>
 </h4>
 <p>To transform <span class="math inline">\(N(0,1)\)</span> variables
 marginally to other distributions, we can use the
-<code><a href="https://inlabru-org.github.io/inlabru/reference/bru_mapper_marginal.html" class="external-link">bru_mapper_marginal()</a></code> mapper. This applies careful
+<code><a href="https://inlabru-org.github.io/inlabru/reference/bm_marginal.html" class="external-link">bru_mapper_marginal()</a></code> mapper. This applies careful
 numerical transformations and computes the Jacobian of the
 transformation, so that the predictor linearisation can compute the
 overall linearised mapping between latent variables and observations
@@ -694,7 +699,7 @@ effect distributed as <span class="math inline">\(\text{Exp}(1)\)</span>:</p>
 <span>  <span class="fu">beta0_B</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">beta_field_B</span><span class="op">(</span><span class="fl">1</span>,</span>
 <span>    prec.linear <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>    marginal <span class="op">=</span> <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/bru_mapper_marginal.html" class="external-link">bru_mapper_marginal</a></span><span class="op">(</span><span class="va">qexp</span>, rate <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span>    marginal <span class="op">=</span> <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/bm_marginal.html" class="external-link">bru_mapper_marginal</a></span><span class="op">(</span><span class="va">qexp</span>, rate <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">field</span><span class="op">(</span><span class="va">geometry</span>, model <span class="op">=</span> <span class="va">matern</span><span class="op">)</span></span>
 <span><span class="va">form_A</span> <span class="op">&lt;-</span> <span class="va">y_A</span> <span class="op">~</span> <span class="va">beta0_A</span> <span class="op">+</span> <span class="va">field</span></span>
@@ -829,7 +834,7 @@ Society: Series B (Statistical Methodology)</em> 71 (2): 319–92. <a href="http
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
     </footer>

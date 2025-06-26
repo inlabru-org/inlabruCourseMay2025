@@ -26,7 +26,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">inlabruCourseMay2025</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -134,8 +134,8 @@ may need to upgrade to the <code>"testing"</code> version, which
 typically contains bug fixes and improvements, and is the version
 <code>inlabru</code> is tested against.</p>
 <p>The third repository is optional, and gives you easy access to the
-development versions of <code>inlabru</code> (2.12.0.9016 or later) and
-<code>fmesher</code> (0.3.0.9008 or later, which is a package dependency
+development versions of <code>inlabru</code> (2.12.0.9021 or later) and
+<code>fmesher</code> (0.4.0.9004 or later, which is a package dependency
 of <code>INLA</code> and <code>inlabru</code>). Most of the tutorials in
 this course will work with the CRAN versions of <code>inlabru</code> and
 <code>fmesher</code>, <code>2.12.0</code>, but installing the
@@ -178,10 +178,10 @@ running</p>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Time used:</span></span>
-<span><span class="co">#&gt;     Pre = 0.39, Running = 0.248, Post = 0.0149, Total = 0.653 </span></span>
+<span><span class="co">#&gt;     Pre = 0.382, Running = 0.119, Post = 0.0143, Total = 0.516 </span></span>
 <span><span class="co">#&gt; Fixed effects:</span></span>
-<span><span class="co">#&gt;               mean    sd 0.025quant 0.5quant 0.975quant   mode kld</span></span>
-<span><span class="co">#&gt; (Intercept) 10.071 0.105      9.865   10.071     10.277 10.071   0</span></span>
+<span><span class="co">#&gt;               mean    sd 0.025quant 0.5quant 0.975quant   mode      kld</span></span>
+<span><span class="co">#&gt; (Intercept) 10.071 0.105      9.865   10.071     10.277 10.071 2352.112</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Model hyperparameters:</span></span>
 <span><span class="co">#&gt;                                          mean   sd 0.025quant 0.5quant</span></span>
@@ -206,23 +206,23 @@ hardware/software combination, with
 <span>  data <span class="op">=</span> <span class="va">df</span></span>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span>
-<span><span class="co">#&gt; inlabru version: 2.12.0.9016</span></span>
-<span><span class="co">#&gt; INLA version: 25.05.18-1</span></span>
+<span><span class="co">#&gt; inlabru version: 2.12.0.9021</span></span>
+<span><span class="co">#&gt; INLA version: 25.06.22-1</span></span>
 <span><span class="co">#&gt; Components:</span></span>
 <span><span class="co">#&gt; Intercept: main = linear(1), group = exchangeable(1L), replicate = iid(1L), NULL</span></span>
 <span><span class="co">#&gt; Observation models:</span></span>
 <span><span class="co">#&gt;   Family: 'gaussian'</span></span>
-<span><span class="co">#&gt;     Tag: ''</span></span>
+<span><span class="co">#&gt;     Tag: &lt;No tag&gt;</span></span>
 <span><span class="co">#&gt;     Data class: 'data.frame'</span></span>
 <span><span class="co">#&gt;     Response class: 'numeric'</span></span>
 <span><span class="co">#&gt;     Predictor: y ~ .</span></span>
 <span><span class="co">#&gt;     Additive/Linear: TRUE/TRUE</span></span>
 <span><span class="co">#&gt;     Used components: effects[Intercept], latent[]</span></span>
 <span><span class="co">#&gt; Time used:</span></span>
-<span><span class="co">#&gt;     Pre = 0.236, Running = 0.262, Post = 0.0364, Total = 0.535 </span></span>
+<span><span class="co">#&gt;     Pre = 0.221, Running = 0.123, Post = 0.0362, Total = 0.38 </span></span>
 <span><span class="co">#&gt; Fixed effects:</span></span>
-<span><span class="co">#&gt;             mean    sd 0.025quant 0.5quant 0.975quant   mode kld</span></span>
-<span><span class="co">#&gt; Intercept 10.071 0.105      9.865   10.071     10.277 10.071   0</span></span>
+<span><span class="co">#&gt;             mean    sd 0.025quant 0.5quant 0.975quant   mode      kld</span></span>
+<span><span class="co">#&gt; Intercept 10.071 0.105      9.865   10.071     10.277 10.071 2351.565</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Model hyperparameters:</span></span>
 <span><span class="co">#&gt;                                          mean   sd 0.025quant 0.5quant</span></span>
@@ -253,7 +253,7 @@ hardware/software combination, with
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
 </div>
 
     </footer>
