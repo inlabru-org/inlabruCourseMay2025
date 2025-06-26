@@ -14,8 +14,8 @@ course](https://centreforstatistics.maths.ed.ac.uk/events/upcoming-events/inlabr
 as and when they become available.
 
 Note: Some of the material has been updated 2025-06-26 to take into
-account updates in fmesher (for version `0.4.0`) and inlabru
-(`2.12.0.9017`).
+account updates in fmesher (for version `0.4.0.9004`) and inlabru
+(`2.12.0.9021`).
 
 ## Event Overview
 

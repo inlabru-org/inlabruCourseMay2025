@@ -12,8 +12,8 @@ URL: https://inlabru-org.github.io/inlabruCourseMay2025/, https://github.com/inl
 Additional_repositories: https://inla.r-inla-download.org/R/testing, https://inlabru-org.r-universe.dev
 Depends:
     R (>= 4.4),
-    inlabru (> 2.12.0),
-    fmesher (>= 0.4.0),
+    inlabru (>= 2.12.0.9021),
+    fmesher (>= 0.4.0.9004),
     methods,
     stats
 Suggests:
