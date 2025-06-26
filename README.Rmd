@@ -21,6 +21,8 @@ This is the course materials page and package for the
 19 and 20 May 2025. Follow the menu links to information and tutorials, as and
 when they become available.
 
+Note: Some of the material has been updated 2025-06-26 to take into account updates in fmesher (for version `0.4.0`) and inlabru (`2.12.0.9017`).
+
 ## Event Overview
 
 Bayesian Latent Gaussian Models (LGMs) are closely related to Generalized Additive Models (GAMs), offering Bayesian estimation and uncertainty quantification for spatial and spatio-temporal models. The [INLA](https://www.r-inla.org/) and [inlabru](https://inlabru-org.github.io/inlabru/) R packages combine these Gaussian process models with numerical optimization and integration techniques, in a fast and flexible analysis toolkit. The taught part of the course will provide an overview of LGM theory and the INLA/inlabru methods and software, while the hands-on sessions will make sure the attendees will be ready to start doing spatial LGM modelling in R as soon as the course is over.

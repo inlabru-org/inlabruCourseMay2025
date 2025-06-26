@@ -13,6 +13,10 @@ course](https://centreforstatistics.maths.ed.ac.uk/events/upcoming-events/inlabr
 19 and 20 May 2025. Follow the menu links to information and tutorials,
 as and when they become available.
 
+Note: Some of the material has been updated 2025-06-26 to take into
+account updates in fmesher (for version `0.4.0`) and inlabru
+(`2.12.0.9017`).
+
 ## Event Overview
 
 Bayesian Latent Gaussian Models (LGMs) are closely related to

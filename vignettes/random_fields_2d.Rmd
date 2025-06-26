@@ -62,7 +62,7 @@ bnd <- spoly(
 )
 ## For fmesher 0.3.0:
 ##   mesh_fine <- fm_mesh_2d_inla(boundary = bnd, max.edge = 0.2)
-## For fmesher development version:
+## For fmesher >= 0.4.0:
 mesh_fine <- fm_mesh_2d(
   loc = fm_hexagon_lattice(bnd, edge_len = 0.2),
   boundary = bnd,
@@ -150,6 +150,7 @@ Construct a mesh covering the data:
 ##     boundary = bnd,
 ##     max.edge = 0.5
 ##  )
+## For fmesher >= 0.4.0
 mesh <- fm_mesh_2d(
   loc = fm_hexagon_lattice(bnd, edge_len = 0.5),
   boundary = bnd,

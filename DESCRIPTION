@@ -1,6 +1,6 @@
 Package: inlabruCourseMay2025
 Title: Course Materials for Edinburgh inlabru Course 19-20 May 2025
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: 
     person("Finn", "Lindgren", , "finn.lindgren@gmail.com", role = c("aut", "cre"))
 Description: Course Materials for Edinburgh inlabru Course 19-20 May 2025.
@@ -13,7 +13,7 @@ Additional_repositories: https://inla.r-inla-download.org/R/testing, https://inl
 Depends:
     R (>= 4.4),
     inlabru (> 2.12.0),
-    fmesher (> 0.3.0),
+    fmesher (>= 0.4.0),
     methods,
     stats
 Suggests:

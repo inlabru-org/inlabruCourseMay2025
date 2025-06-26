@@ -2,19 +2,11 @@
 #' @export
 fmesher::`fm_CRSargs_as_list`
 #' @export
-fmesher::`fm_has_PROJ6`
-#' @export
 fmesher::`fm_basis_mesh_2d`
-#' @export
-fmesher::`fm_sp_get_crs`
-#' @export
-fmesher::`fm_crs_get_wkt`
 #' @export
 fmesher::`fm_nonconvex_hull_inla_basic`
 #' @export
 fmesher::`fm_detect_manifold`
-#' @export
-fmesher::`fm_identical_CRS`
 #' @export
 fmesher::`fm_int_mesh_2d`
 #' @export
@@ -58,6 +50,8 @@ fmesher::`fm_crs_detect_manifold`
 #' @export
 fmesher::`fm_subdivide`
 #' @export
+fmesher::`fm_as_collect_list`
+#' @export
 fmesher::`fm_manifold_dim`
 #' @export
 fmesher::`fm_crs_oblique`
@@ -77,6 +71,8 @@ fmesher::`fm_tensor`
 fmesher::`fm_unify_coords`
 #' @export
 fmesher::`fm_as_segm_list`
+#' @export
+fmesher::`fm_nonconvex_hull_fm`
 #' @export
 fmesher::`fm_safe_sp`
 #' @export
@@ -178,7 +174,11 @@ fmesher::`fm_list`
 #' @export
 fmesher::`fm_as_unpackedMatrix`
 #' @export
+fmesher::`fm_collect`
+#' @export
 fmesher::`fm_wkt_set_ellipsoid_radius`
+#' @export
+fmesher::`fm_components`
 #' @export
 fmesher::`fm_rcdt_2d_inla`
 #' @export
@@ -248,9 +248,11 @@ fmesher::`fm_as_fm`
 #' @export
 fmesher::`fmesher_mesh3d`
 #' @export
-fmesher::`lines_rgl`
+fmesher::`fm_as_collect`
 #' @export
 fmesher::`fm_as_mesh_2d_list`
+#' @export
+fmesher::`lines_rgl`
 #' @export
 fmesher::`fm_row_kron`
 #' @export
@@ -281,8 +283,6 @@ fmesher::`fm_crs_graticule`
 fmesher::`fm_wkt_set_lengthunit`
 #' @export
 fmesher::`fm_crs_set_lengthunit`
-#' @export
-fmesher::`fm_as_sp_crs`
 #' @export
 fmesher::`fm_matern_precision`
 #' @export
@@ -323,6 +323,8 @@ fmesher::`fm_wkt_tree_as_wkt`
 fmesher::`fm_is_bnd`
 #' @export
 fmesher::`fm_list_as_CRS`
+#' @export
+fmesher::`fm_sizes`
 #' @export
 fmesher::`fmesher_spherical_bsplines1`
 #' @export
