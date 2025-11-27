@@ -26,7 +26,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">inlabruCourseMay2025</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.4</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -134,8 +134,8 @@ may need to upgrade to the <code>"testing"</code> version, which
 typically contains bug fixes and improvements, and is the version
 <code>inlabru</code> is tested against.</p>
 <p>The third repository is optional, and gives you easy access to the
-development versions of <code>inlabru</code> (2.12.0.9021 or later) and
-<code>fmesher</code> (0.4.0.9004 or later, which is a package dependency
+development versions of <code>inlabru</code> (2.13.0.9020 or later) and
+<code>fmesher</code> (0.5.0.9013 or later, which is a package dependency
 of <code>INLA</code> and <code>inlabru</code>). Most of the tutorials in
 this course will work with the CRAN versions of <code>inlabru</code> and
 <code>fmesher</code>, <code>2.12.0</code>, but installing the
@@ -178,10 +178,10 @@ running</p>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Time used:</span></span>
-<span><span class="co">#&gt;     Pre = 0.382, Running = 0.119, Post = 0.0143, Total = 0.516 </span></span>
+<span><span class="co">#&gt;     Pre = 0.378, Running = 0.12, Post = 0.0142, Total = 0.513 </span></span>
 <span><span class="co">#&gt; Fixed effects:</span></span>
-<span><span class="co">#&gt;               mean    sd 0.025quant 0.5quant 0.975quant   mode      kld</span></span>
-<span><span class="co">#&gt; (Intercept) 10.071 0.105      9.865   10.071     10.277 10.071 2352.112</span></span>
+<span><span class="co">#&gt;               mean    sd 0.025quant 0.5quant 0.975quant   mode kld</span></span>
+<span><span class="co">#&gt; (Intercept) 10.071 0.105      9.865   10.071     10.277 10.071   0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Model hyperparameters:</span></span>
 <span><span class="co">#&gt;                                          mean   sd 0.025quant 0.5quant</span></span>
@@ -206,36 +206,29 @@ hardware/software combination, with
 <span>  data <span class="op">=</span> <span class="va">df</span></span>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span>
-<span><span class="co">#&gt; inlabru version: 2.12.0.9021</span></span>
-<span><span class="co">#&gt; INLA version: 25.06.22-1</span></span>
-<span><span class="co">#&gt; Components:</span></span>
-<span><span class="co">#&gt; Intercept: main = linear(1), group = exchangeable(1L), replicate = iid(1L), NULL</span></span>
+<span><span class="co">#&gt; inlabru version: 2.13.0.9020 </span></span>
+<span><span class="co">#&gt; INLA version: 25.11.22 </span></span>
+<span><span class="co">#&gt; Latent components:</span></span>
+<span><span class="co">#&gt; Intercept: main = linear(1)</span></span>
 <span><span class="co">#&gt; Observation models:</span></span>
-<span><span class="co">#&gt;   Family: 'gaussian'</span></span>
-<span><span class="co">#&gt;     Tag: &lt;No tag&gt;</span></span>
+<span><span class="co">#&gt;   Model tag: &lt;No tag&gt;</span></span>
+<span><span class="co">#&gt;     Family: 'gaussian'</span></span>
 <span><span class="co">#&gt;     Data class: 'data.frame'</span></span>
 <span><span class="co">#&gt;     Response class: 'numeric'</span></span>
-<span><span class="co">#&gt;     Predictor: y ~ .</span></span>
-<span><span class="co">#&gt;     Additive/Linear: TRUE/TRUE</span></span>
-<span><span class="co">#&gt;     Used components: effects[Intercept], latent[]</span></span>
+<span><span class="co">#&gt;     Predictor: y ~ Intercept</span></span>
+<span><span class="co">#&gt;     Additive/Linear/Rowwise: TRUE/TRUE/TRUE</span></span>
+<span><span class="co">#&gt;     Used components: effect[Intercept], latent[] </span></span>
 <span><span class="co">#&gt; Time used:</span></span>
-<span><span class="co">#&gt;     Pre = 0.221, Running = 0.123, Post = 0.0362, Total = 0.38 </span></span>
+<span><span class="co">#&gt;     Pre = 0.23, Running = 0.12, Post = 0.0334, Total = 0.384 </span></span>
 <span><span class="co">#&gt; Fixed effects:</span></span>
-<span><span class="co">#&gt;             mean    sd 0.025quant 0.5quant 0.975quant   mode      kld</span></span>
-<span><span class="co">#&gt; Intercept 10.071 0.105      9.865   10.071     10.277 10.071 2351.565</span></span>
+<span><span class="co">#&gt;             mean    sd 0.025quant 0.5quant 0.975quant   mode kld</span></span>
+<span><span class="co">#&gt; Intercept 10.071 0.105      9.865   10.071     10.277 10.071   0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Model hyperparameters:</span></span>
 <span><span class="co">#&gt;                                          mean   sd 0.025quant 0.5quant</span></span>
 <span><span class="co">#&gt; Precision for the Gaussian observations 0.924 0.13      0.687    0.918</span></span>
 <span><span class="co">#&gt;                                         0.975quant  mode</span></span>
 <span><span class="co">#&gt; Precision for the Gaussian observations       1.20 0.905</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Deviance Information Criterion (DIC) ...............: 296.69</span></span>
-<span><span class="co">#&gt; Deviance Information Criterion (DIC, saturated) ....: 104.35</span></span>
-<span><span class="co">#&gt; Effective number of parameters .....................: 1.99</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Watanabe-Akaike information criterion (WAIC) ...: 296.96</span></span>
-<span><span class="co">#&gt; Effective number of parameters .................: 2.19</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Marginal log-Likelihood:  -163.19 </span></span>
 <span><span class="co">#&gt;  is computed </span></span>
@@ -253,7 +246,7 @@ hardware/software combination, with
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>

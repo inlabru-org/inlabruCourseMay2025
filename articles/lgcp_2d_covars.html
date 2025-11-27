@@ -26,7 +26,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">inlabruCourseMay2025</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.4</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,7 +95,7 @@
                         <h4 data-toc-skip class="author">David Borchers
 and Finn Lindgren</h4>
             
-            <h4 data-toc-skip class="date">Generated on 2025-06-26</h4>
+            <h4 data-toc-skip class="date">Generated on 2025-11-27</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/inlabru-org/inlabruCourseMay2025/blob/main/vignettes/lgcp_2d_covars.Rmd" class="external-link"><code>vignettes/lgcp_2d_covars.Rmd</code></a></small>
       <div class="d-none name"><code>lgcp_2d_covars.Rmd</code></div>
@@ -146,7 +146,7 @@ convenience:</p>
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/gg.html" class="external-link">gg</a></span><span class="op">(</span><span class="va">gcov</span><span class="op">$</span><span class="va">vegetation</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/gg.html" class="external-link">gg</a></span><span class="op">(</span><span class="va">boundary</span>, alpha <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/gg.html" class="external-link">gg</a></span><span class="op">(</span><span class="va">nests</span>, color <span class="op">=</span> <span class="st">"white"</span>, cex <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code></pre></div>
-<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-4-1.png" width="672"></p>
+<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" width="672"></p>
 <p>Or, with the mesh:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -154,7 +154,7 @@ convenience:</p>
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/gg.html" class="external-link">gg</a></span><span class="op">(</span><span class="va">mesh</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/gg.html" class="external-link">gg</a></span><span class="op">(</span><span class="va">boundary</span>, alpha <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/gg.html" class="external-link">gg</a></span><span class="op">(</span><span class="va">nests</span>, color <span class="op">=</span> <span class="st">"white"</span>, cex <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code></pre></div>
-<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-5-1.png" width="672"></p>
+<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-5-1.png" class="r-plt" width="672"></p>
 <div class="section level4">
 <h4 id="a-model-with-vegetation-type-only">A model with vegetation type only<a class="anchor" aria-label="anchor" href="#a-model-with-vegetation-type-only"></a>
 </h4>
@@ -202,7 +202,7 @@ typically a <code>data.frame</code>). We can use the
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/gg.html" class="external-link">gg</a></span><span class="op">(</span><span class="va">int1</span>, geom <span class="op">=</span> <span class="st">"tile"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/gg.html" class="external-link">gg</a></span><span class="op">(</span><span class="va">boundary</span>, alpha <span class="op">=</span> <span class="fl">0</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/gg.html" class="external-link">gg</a></span><span class="op">(</span><span class="va">nests</span>, color <span class="op">=</span> <span class="st">"DarkGreen"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-10-1.png" width="672"></p>
+<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-10-1.png" class="r-plt" width="672"></p>
 <p>Not surprisingly, given that most nests are in <code>Primary</code>
 vegetation, the high density is in this vegetation. But there are
 substantial patches of predicted high density that have no nests, and
@@ -212,10 +212,10 @@ estimated abundance (there are really 647 nests there):</p>
 <code class="sourceCode R"><span><span class="va">ips</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://inlabru-org.github.io/fmesher/reference/fm_int.html" class="external-link">fm_int</a></span><span class="op">(</span><span class="va">mesh</span>, <span class="va">boundary</span><span class="op">)</span></span>
 <span><span class="va">Lambda1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">fit1</span>, <span class="va">ips</span>, <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">weight</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="va">vegetation</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">Lambda1</span></span>
-<span><span class="co">#&gt;       mean       sd   q0.025    q0.5   q0.975  median sd.mc_std_err</span></span>
-<span><span class="co">#&gt; 1 648.6307 22.20058 609.6879 647.376 695.1171 647.376      1.621827</span></span>
-<span><span class="co">#&gt;   mean.mc_std_err</span></span>
-<span><span class="co">#&gt; 1        2.544424</span></span></code></pre></div>
+<span><span class="co">#&gt;       mean       sd   q0.025     q0.5   q0.975   median mean.mc_std_err</span></span>
+<span><span class="co">#&gt; 1 643.8854 24.96697 590.7959 642.4993 688.9804 642.4993        2.857568</span></span>
+<span><span class="co">#&gt;   sd.mc_std_err</span></span>
+<span><span class="co">#&gt; 1      1.804355</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="a-model-with-vegetation-type-and-a-spde-type-smoother">A model with vegetation type and a SPDE type smoother<a class="anchor" aria-label="anchor" href="#a-model-with-vegetation-type-and-a-spde-type-smoother"></a>
@@ -242,7 +242,7 @@ that is not captured by the vegetation covariate, using an SPDE:</p>
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/gg.html" class="external-link">gg</a></span><span class="op">(</span><span class="va">int2</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">q0.5</span><span class="op">)</span>, geom <span class="op">=</span> <span class="st">"tile"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/gg.html" class="external-link">gg</a></span><span class="op">(</span><span class="va">boundary</span>, alpha <span class="op">=</span> <span class="fl">0</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/gg.html" class="external-link">gg</a></span><span class="op">(</span><span class="va">nests</span><span class="op">)</span></span></code></pre></div>
-<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-15-1.png" width="672"></p>
+<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-15-1.png" class="r-plt" width="672"></p>
 <p>… and the expected integrated intensity (mean of abundance)</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Lambda2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span></span>
@@ -251,10 +251,10 @@ that is not captured by the vegetation covariate, using an SPDE:</p>
 <span>  <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">weight</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="va">mySmooth</span> <span class="op">+</span> <span class="va">vegetation</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span><span class="va">Lambda2</span></span>
-<span><span class="co">#&gt;       mean      sd   q0.025     q0.5   q0.975   median sd.mc_std_err</span></span>
-<span><span class="co">#&gt; 1 681.5223 25.1389 628.2125 680.0837 730.7427 680.0837      2.168074</span></span>
-<span><span class="co">#&gt;   mean.mc_std_err</span></span>
-<span><span class="co">#&gt; 1        2.947505</span></span></code></pre></div>
+<span><span class="co">#&gt;       mean       sd   q0.025    q0.5   q0.975  median mean.mc_std_err</span></span>
+<span><span class="co">#&gt; 1 672.8771 24.83749 627.6962 671.861 720.9907 671.861        2.895659</span></span>
+<span><span class="co">#&gt;   sd.mc_std_err</span></span>
+<span><span class="co">#&gt; 1      2.059551</span></span></code></pre></div>
 <p>Look at the contributions to the linear predictor from the SPDE and
 from vegetation:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
@@ -292,7 +292,7 @@ predictor components being plotted (medians are plotted by default).</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"vegetation"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/multiplot.html" class="external-link">multiplot</a></span><span class="op">(</span><span class="va">plot.lp2</span>, <span class="va">plot.lp2.spde</span>, <span class="va">plot.lp2.veg</span>, cols <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
-<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-18-1.png" width="672"></p>
+<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-18-1.png" class="r-plt" width="672"></p>
 </div>
 <div class="section level4">
 <h4 id="a-model-with-spde-only">A model with SPDE only<a class="anchor" aria-label="anchor" href="#a-model-with-spde-only"></a>
@@ -314,7 +314,7 @@ Intercept, and choose between models on the basis of DIC, using
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/gg.html" class="external-link">gg</a></span><span class="op">(</span><span class="va">int3</span>, geom <span class="op">=</span> <span class="st">"tile"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/gg.html" class="external-link">gg</a></span><span class="op">(</span><span class="va">boundary</span>, alpha <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/gg.html" class="external-link">gg</a></span><span class="op">(</span><span class="va">nests</span><span class="op">)</span></span></code></pre></div>
-<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-21-1.png" width="672"></p>
+<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-21-1.png" class="r-plt" width="672"></p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Lambda3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span></span>
 <span>  <span class="va">fit3</span>,</span>
@@ -322,10 +322,10 @@ Intercept, and choose between models on the basis of DIC, using
 <span>  <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">weight</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="va">mySmooth</span> <span class="op">+</span> <span class="va">Intercept</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span><span class="va">Lambda3</span></span>
-<span><span class="co">#&gt;       mean       sd   q0.025     q0.5  q0.975   median sd.mc_std_err</span></span>
-<span><span class="co">#&gt; 1 674.6936 28.91869 621.4448 674.3702 736.587 674.3702      2.334351</span></span>
-<span><span class="co">#&gt;   mean.mc_std_err</span></span>
-<span><span class="co">#&gt; 1        3.358739</span></span></code></pre></div>
+<span><span class="co">#&gt;       mean       sd   q0.025     q0.5   q0.975   median mean.mc_std_err</span></span>
+<span><span class="co">#&gt; 1 672.6138 25.55332 626.2431 670.8668 714.9361 670.8668        2.844655</span></span>
+<span><span class="co">#&gt;   sd.mc_std_err</span></span>
+<span><span class="co">#&gt; 1      1.446619</span></span></code></pre></div>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/deltaIC.html" class="external-link">deltaIC</a></span><span class="op">(</span><span class="va">fit1</span>, <span class="va">fit2</span>, <span class="va">fit3</span>, criterion <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"DIC"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <table class="table">
@@ -342,7 +342,7 @@ Intercept, and choose between models on the basis of DIC, using
 </tr>
 <tr class="even">
 <td align="left">fit3</td>
-<td align="right">524.7293</td>
+<td align="right">524.7296</td>
 <td align="right">1087.271</td>
 </tr>
 <tr class="odd">
@@ -417,7 +417,7 @@ distribution of the coefficient of variation</p>
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/gg.html" class="external-link">gg</a></span><span class="op">(</span><span class="va">int2</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">sd</span> <span class="op">/</span> <span class="va">mean</span><span class="op">)</span>, geom <span class="op">=</span> <span class="st">"tile"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/gg.html" class="external-link">gg</a></span><span class="op">(</span><span class="va">boundary</span>, alpha <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/gg.html" class="external-link">gg</a></span><span class="op">(</span><span class="va">nests</span><span class="op">)</span></span></code></pre></div>
-<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-26-1.png" width="672"></p>
+<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-26-1.png" class="r-plt" width="672"></p>
 <p>Plot the vegetation “fixed effect” posteriors. First get their names
 - from <code>$marginals.random$vegetation</code> of the fitted object,
 which contains the fixed effect marginal distribution data</p>
@@ -425,7 +425,7 @@ which contains the fixed effect marginal distribution data</p>
 <code class="sourceCode R"><span><span class="va">flist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">vector</a></span><span class="op">(</span><span class="st">"list"</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">NROW</a></span><span class="op">(</span><span class="va">fit2</span><span class="op">$</span><span class="va">summary.random</span><span class="op">$</span><span class="va">vegetation</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_along</a></span><span class="op">(</span><span class="va">flist</span><span class="op">)</span><span class="op">)</span> <span class="va">flist</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">fit2</span>, <span class="st">"vegetation"</span>, index <span class="op">=</span> <span class="va">i</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/multiplot.html" class="external-link">multiplot</a></span><span class="op">(</span>plotlist <span class="op">=</span> <span class="va">flist</span>, cols <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
-<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-27-1.png" width="672"></p>
+<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-27-1.png" class="r-plt" width="672"></p>
 <p>Use <code><a href="https://inlabru-org.github.io/inlabru/reference/spde.posterior.html" class="external-link">spde.posterior( )</a></code> to obtain and then plot the SPDE
 parameter posteriors and the Matern correlation and covariance functions
 for this model.</p>
@@ -436,12 +436,12 @@ for this model.</p>
 <span><span class="va">var.plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">spde.logvar</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/multiplot.html" class="external-link">multiplot</a></span><span class="op">(</span><span class="va">range.plot</span>, <span class="va">var.plot</span><span class="op">)</span></span></code></pre></div>
-<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-28-1.png" width="672"></p>
+<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-28-1.png" class="r-plt" width="672"></p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">corplot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/spde.posterior.html" class="external-link">spde.posterior</a></span><span class="op">(</span><span class="va">fit2</span>, <span class="st">"mySmooth"</span>, what <span class="op">=</span> <span class="st">"matern.correlation"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">covplot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/spde.posterior.html" class="external-link">spde.posterior</a></span><span class="op">(</span><span class="va">fit2</span>, <span class="st">"mySmooth"</span>, what <span class="op">=</span> <span class="st">"matern.covariance"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/multiplot.html" class="external-link">multiplot</a></span><span class="op">(</span><span class="va">covplot</span>, <span class="va">corplot</span><span class="op">)</span></span></code></pre></div>
-<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-28-2.png" width="672"></p>
+<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-28-2.png" class="r-plt" width="672"></p>
 </div>
 </div>
 <div class="section level2">
@@ -456,7 +456,7 @@ variable. (First centre elevations for more stable fitting.)</p>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/gg.html" class="external-link">gg</a></span><span class="op">(</span><span class="va">elev</span>, geom <span class="op">=</span> <span class="st">"tile"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/gg.html" class="external-link">gg</a></span><span class="op">(</span><span class="va">boundary</span>, alpha <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></code></pre></div>
-<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-29-1.png" width="672"></p>
+<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-29-1.png" class="r-plt" width="672"></p>
 <p>The elevation variable here is of class ‘SpatRaster’, that can be
 handled in the same way as the vegetation covariate, with automatic
 evaluation via an <code><a href="https://inlabru-org.github.io/inlabru/reference/eval_spatial.html" class="external-link">eval_spatial()</a></code> method. However, since in
@@ -515,26 +515,26 @@ complex cases.</p>
 <p>Summary and model selection</p>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">efit</span><span class="op">)</span></span>
-<span><span class="co">#&gt; inlabru version: 2.12.0.9021</span></span>
-<span><span class="co">#&gt; INLA version: 25.06.22-1</span></span>
-<span><span class="co">#&gt; Components:</span></span>
-<span><span class="co">#&gt; elev: main = linear(f.elev(.data.)), group = exchangeable(1L), replicate = iid(1L), NULL</span></span>
-<span><span class="co">#&gt; mySmooth: main = spde(geometry), group = exchangeable(1L), replicate = iid(1L), NULL</span></span>
-<span><span class="co">#&gt; Intercept: main = linear(1), group = exchangeable(1L), replicate = iid(1L), NULL</span></span>
+<span><span class="co">#&gt; inlabru version: 2.13.0.9020 </span></span>
+<span><span class="co">#&gt; INLA version: 25.11.22 </span></span>
+<span><span class="co">#&gt; Latent components:</span></span>
+<span><span class="co">#&gt; elev: main = linear(f.elev(.data.))</span></span>
+<span><span class="co">#&gt; mySmooth: main = spde(geometry)</span></span>
+<span><span class="co">#&gt; Intercept: main = linear(1)</span></span>
 <span><span class="co">#&gt; Observation models:</span></span>
-<span><span class="co">#&gt;   Family: 'cp'</span></span>
-<span><span class="co">#&gt;     Tag: &lt;No tag&gt;</span></span>
-<span><span class="co">#&gt;     Data class: 'sf', 'data.frame'</span></span>
+<span><span class="co">#&gt;   Model tag: &lt;No tag&gt;</span></span>
+<span><span class="co">#&gt;     Family: 'cp'</span></span>
+<span><span class="co">#&gt;     Data class: 'sf', 'tbl_df', 'tbl', 'data.frame'</span></span>
 <span><span class="co">#&gt;     Response class: 'numeric'</span></span>
-<span><span class="co">#&gt;     Predictor: geometry ~ .</span></span>
-<span><span class="co">#&gt;     Additive/Linear: TRUE/TRUE</span></span>
-<span><span class="co">#&gt;     Used components: effects[elev, mySmooth, Intercept], latent[]</span></span>
+<span><span class="co">#&gt;     Predictor: geometry ~ BRU_cp_predictor({ elev + mySmooth + Intercept }, .data., .data_extra.)</span></span>
+<span><span class="co">#&gt;     Additive/Linear/Rowwise: FALSE/TRUE/FALSE</span></span>
+<span><span class="co">#&gt;     Used components: effect[elev, mySmooth, Intercept], latent[] </span></span>
 <span><span class="co">#&gt; Time used:</span></span>
-<span><span class="co">#&gt;     Pre = 0.38, Running = 4.09, Post = 0.268, Total = 4.74 </span></span>
+<span><span class="co">#&gt;     Pre = 0.542, Running = 3.95, Post = 0.275, Total = 4.76 </span></span>
 <span><span class="co">#&gt; Fixed effects:</span></span>
-<span><span class="co">#&gt;            mean    sd 0.025quant 0.5quant 0.975quant  mode        kld</span></span>
-<span><span class="co">#&gt; elev      0.004 0.001      0.002    0.004      0.006 0.004 252970.007</span></span>
-<span><span class="co">#&gt; Intercept 1.127 0.478      0.154    1.137      2.038 1.137      2.361</span></span>
+<span><span class="co">#&gt;            mean    sd 0.025quant 0.5quant 0.975quant  mode kld</span></span>
+<span><span class="co">#&gt; elev      0.004 0.001      0.002    0.004      0.006 0.004   0</span></span>
+<span><span class="co">#&gt; Intercept 1.127 0.478      0.154    1.137      2.038 1.137   0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Random effects:</span></span>
 <span><span class="co">#&gt;   Name     Model</span></span>
@@ -549,9 +549,6 @@ complex cases.</p>
 <span><span class="co">#&gt; Deviance Information Criterion (DIC, saturated) ....: 520.03</span></span>
 <span><span class="co">#&gt; Effective number of parameters .....................: -825.53</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Watanabe-Akaike information criterion (WAIC) ...: 1603.68</span></span>
-<span><span class="co">#&gt; Effective number of parameters .................: 153.47</span></span>
-<span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Marginal log-Likelihood:  -1254.95 </span></span>
 <span><span class="co">#&gt;  is computed </span></span>
 <span><span class="co">#&gt; Posterior summaries for the linear predictor and the fitted values are computed</span></span>
@@ -560,7 +557,7 @@ complex cases.</p>
 <span><span class="co">#&gt;   Model       DIC Delta.DIC</span></span>
 <span><span class="co">#&gt; 1  fit1 -562.5418     0.000</span></span>
 <span><span class="co">#&gt; 2  efit  520.8583  1083.400</span></span>
-<span><span class="co">#&gt; 3  fit3  524.7293  1087.271</span></span>
+<span><span class="co">#&gt; 3  fit3  524.7296  1087.271</span></span>
 <span><span class="co">#&gt; 4  fit2  618.8300  1181.372</span></span></code></pre></div>
 <p>Predict and plot the density</p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
@@ -583,7 +580,7 @@ complex cases.</p>
 <span>  <span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/gg.html" class="external-link">gg</a></span><span class="op">(</span><span class="va">nests</span>, shape <span class="op">=</span> <span class="st">"+"</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com" class="external-link">patchwork</a></span><span class="op">)</span></span>
 <span><span class="va">p1</span> <span class="op">|</span> <span class="va">p2</span></span></code></pre></div>
-<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-37-1.png" width="672"></p>
+<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-37-1.png" class="r-plt" width="672"></p>
 <p>Now look at the elevation and SPDE effects in space. Leave out the
 Intercept because it swamps the spatial effects of elevation and the
 SPDE in the plots and we are interested in comparing the effects of
@@ -633,7 +630,7 @@ factor variable, produces the plots we want.</p>
 <span>  <span class="va">plot.e.lp.elev</span>,</span>
 <span>  cols <span class="op">=</span> <span class="fl">3</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-39-1.png" width="1248"></p>
+<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-39-1.png" class="r-plt" width="1248"></p>
 <p>You might also want to look at the posteriors of the fixed effects
 and of the SPDE. Adapt the code used for the vegetation factor to do
 this.</p>
@@ -644,17 +641,17 @@ this.</p>
 <span>  <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">weight</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="va">Intercept</span> <span class="op">+</span> <span class="va">elev</span> <span class="op">+</span> <span class="va">mySmooth</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span><span class="va">LambdaE</span></span>
-<span><span class="co">#&gt;      mean       sd   q0.025     q0.5   q0.975   median sd.mc_std_err</span></span>
-<span><span class="co">#&gt; 1 671.776 28.69779 629.8041 671.1253 730.3634 671.1253      1.617152</span></span>
-<span><span class="co">#&gt;   mean.mc_std_err</span></span>
-<span><span class="co">#&gt; 1         3.19321</span></span></code></pre></div>
+<span><span class="co">#&gt;       mean       sd   q0.025     q0.5   q0.975   median mean.mc_std_err</span></span>
+<span><span class="co">#&gt; 1 670.1873 25.86333 627.2926 672.8223 715.2299 672.8223        2.979209</span></span>
+<span><span class="co">#&gt;   sd.mc_std_err</span></span>
+<span><span class="co">#&gt; 1      1.964382</span></span></code></pre></div>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">flist</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">vector</a></span><span class="op">(</span><span class="st">"list"</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">NROW</a></span><span class="op">(</span><span class="va">efit</span><span class="op">$</span><span class="va">summary.fixed</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq_along</a></span><span class="op">(</span><span class="va">flist</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">flist</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">efit</span>, <span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">rownames</a></span><span class="op">(</span><span class="va">efit</span><span class="op">$</span><span class="va">summary.fixed</span><span class="op">)</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/multiplot.html" class="external-link">multiplot</a></span><span class="op">(</span>plotlist <span class="op">=</span> <span class="va">flist</span>, cols <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
-<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-41-1.png" width="672"></p>
+<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-41-1.png" class="r-plt" width="672"></p>
 <p>Plot the SPDE parameter posteriors and the Matern correlation and
 covariance functions for this model.</p>
 <div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
@@ -664,12 +661,12 @@ covariance functions for this model.</p>
 <span><span class="va">var.plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">spde.logvar</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/multiplot.html" class="external-link">multiplot</a></span><span class="op">(</span><span class="va">range.plot</span>, <span class="va">var.plot</span><span class="op">)</span></span></code></pre></div>
-<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-42-1.png" width="672"></p>
+<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-42-1.png" class="r-plt" width="672"></p>
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">corplot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/spde.posterior.html" class="external-link">spde.posterior</a></span><span class="op">(</span><span class="va">efit</span>, <span class="st">"mySmooth"</span>, what <span class="op">=</span> <span class="st">"matern.correlation"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">covplot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/spde.posterior.html" class="external-link">spde.posterior</a></span><span class="op">(</span><span class="va">efit</span>, <span class="st">"mySmooth"</span>, what <span class="op">=</span> <span class="st">"matern.covariance"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/multiplot.html" class="external-link">multiplot</a></span><span class="op">(</span><span class="va">covplot</span>, <span class="va">corplot</span><span class="op">)</span></span></code></pre></div>
-<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-42-2.png" width="672"></p>
+<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-42-2.png" class="r-plt" width="672"></p>
 <p>Also estimate abundance. The <code>data.frame</code> in the second
 call leads to inclusion of <code>N</code> in the prediction object, for
 easier plotting.</p>
@@ -679,10 +676,10 @@ easier plotting.</p>
 <span>  <span class="op">~</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">weight</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">exp</a></span><span class="op">(</span><span class="va">mySmooth</span> <span class="op">+</span> <span class="va">elev</span> <span class="op">+</span> <span class="va">Intercept</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span><span class="va">Lambda</span></span>
-<span><span class="co">#&gt;       mean       sd   q0.025     q0.5   q0.975   median sd.mc_std_err</span></span>
-<span><span class="co">#&gt; 1 673.3528 25.70558 627.7618 673.9454 720.3083 673.9454      1.642016</span></span>
-<span><span class="co">#&gt;   mean.mc_std_err</span></span>
-<span><span class="co">#&gt; 1        2.898961</span></span>
+<span><span class="co">#&gt;       mean       sd   q0.025     q0.5   q0.975   median mean.mc_std_err</span></span>
+<span><span class="co">#&gt; 1 670.2187 27.29471 617.4294 672.9819 720.2705 672.9819         3.08185</span></span>
+<span><span class="co">#&gt;   sd.mc_std_err</span></span>
+<span><span class="co">#&gt; 1      1.761895</span></span>
 <span></span>
 <span><span class="va">Nest.e</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span></span>
 <span>  <span class="va">efit</span>,</span>
@@ -701,7 +698,7 @@ easier plotting.</p>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">Nest.e</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">N</span>, y <span class="op">=</span> <span class="va">mean</span>, colour <span class="op">=</span> <span class="st">"Posterior"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">N</span>, y <span class="op">=</span> <span class="va">plugin_estimate</span>, colour <span class="op">=</span> <span class="st">"Plugin"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-44-1.png" width="672"></p>
+<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-44-1.png" class="r-plt" width="672"></p>
 <div class="section level3">
 <h3 id="non-spatial-evaluation-of-the-covariate-effect">Non-spatial evaluation of the covariate effect<a class="anchor" aria-label="anchor" href="#non-spatial-evaluation-of-the-covariate-effect"></a>
 </h3>
@@ -753,7 +750,7 @@ expressions.</p>
 <span>    <span class="op">)</span>,</span>
 <span>    alpha <span class="op">=</span> <span class="fl">0.2</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-45-1.png" width="672"></p>
+<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-45-1.png" class="r-plt" width="672"></p>
 </div>
 </div>
 <div class="section level2">
@@ -820,7 +817,7 @@ adding the covariate to the model specification.)</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">xlab</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substitute.html" class="external-link">quote</a></span><span class="op">(</span><span class="fu">bold</span><span class="op">(</span><span class="va">s</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ylab</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/substitute.html" class="external-link">quote</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/influence.measures.html" class="external-link">hat</a></span><span class="op">(</span><span class="va">lambda</span><span class="op">)</span><span class="op">(</span><span class="fu">bold</span><span class="op">(</span><span class="va">s</span><span class="op">)</span><span class="op">)</span> <span class="op">~</span> <span class="op">~</span><span class="st">"and its components"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>colour <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_legend.html" class="external-link">guide_legend</a></span><span class="op">(</span><span class="st">"Quantity"</span><span class="op">)</span>, fill <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-46-1.png" width="672"></p>
+<p><img src="lgcp_2d_covars_files/figure-html/unnamed-chunk-46-1.png" class="r-plt" width="672"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
@@ -833,7 +830,7 @@ adding the covariate to the model specification.)</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>

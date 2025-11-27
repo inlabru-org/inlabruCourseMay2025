@@ -1,0 +1,655 @@
+# The Piemonte dataset example
+
+## Abstract
+
+In this vignette we illustrate how to fit some of the spacetime models
+in Lindgren et al. (2024), see \[[SORT vol. 48, no. 1,
+pp. 3-66](https://raco.cat/index.php/SORT/article/view/428665)\] and the
+related code, for the data analysed in Cameletti et al. (2013). To
+perform this we will use the Bayesian paradigm with the**INLA** package,
+using the features provided by the **inlabru** package to facilitate the
+coding.
+
+## Introduction
+
+### The packages and setup
+
+We start loading the required packages and those for doing the
+visualizations, the **ggplot2** and **patchwork** packages.
+
+``` r
+library(ggplot2)
+library(patchwork)
+library(INLA)
+#> Loading required package: Matrix
+#> This is INLA_25.11.22 built 2025-11-22 08:57:21 UTC.
+#>  - See www.r-inla.org/contact-us for how to get help.
+#>  - List available models/likelihoods/etc with inla.list.models()
+#>  - Use inla.doc(<NAME>) to access documentation
+library(INLAspacetime)
+#> Loading required package: fmesher
+#> see more on https://eliaskrainski.github.io/INLAspacetime
+library(inlabru)
+library(fmesher)
+```
+
+We will ask it to return the WAIC, DIC and CPO
+
+``` r
+ctrc <- list(
+  waic = TRUE,
+  dic = TRUE,
+  cpo = TRUE
+)
+```
+
+### Getting the dataset
+
+We will use the dataset analysed in Cameletti et al. (2013), that can be
+downloaded as follows. First, we set the filenames
+
+``` r
+u0 <- paste0(
+  "http://inla.r-inla-download.org/",
+  "r-inla.org/case-studies/Cameletti2012/"
+)
+coofl <- "coordinates.csv"
+datafl <- "Piemonte_data_byday.csv"
+bordersfl <- "Piemonte_borders.csv"
+
+get_file <- function(url_root, file, cache_path) {
+  dir.create(cache_path, recursive = TRUE)
+  file_path <- file.path(cache_path, file)
+  if (!file.exists(file_path)) {
+    download.file(paste0(url_root, file), file_path)
+  }
+  read.csv(file_path)
+}
+```
+
+Download and read the borders file, station coordinates, and observation
+data to a cache directory,
+e.g. `cache_path <- "`nonseparable_spacetime_cache`"`:
+
+``` r
+dim(pborders <- get_file(u0, bordersfl, cache_path))
+#> [1] 27821     2
+dim(locs <- get_file(u0, coofl, cache_path))
+#> [1] 24  3
+dim(pdata <- get_file(u0, datafl, cache_path))
+#> [1] 4368   11
+```
+
+Inspect the dataset
+
+``` r
+head(pdata)
+#>   Station.ID     Date     A   UTMX    UTMY   WS   TEMP   HMIX PREC   EMI PM10
+#> 1          1 01/10/05  95.2 469.45 4972.85 0.90 288.81 1294.6    0 26.05   28
+#> 2          2 01/10/05 164.1 423.48 4950.69 0.82 288.67 1139.8    0 18.74   22
+#> 3          3 01/10/05 242.9 490.71 4948.86 0.96 287.44 1404.0    0  6.28   17
+#> 4          4 01/10/05 149.9 437.36 4973.34 1.17 288.63 1042.4    0 29.35   25
+#> 5          5 01/10/05 405.0 426.44 5045.66 0.60 287.63 1038.7    0 32.19   20
+#> 6          6 01/10/05 257.5 394.60 5001.18 1.02 288.59 1048.3    0 34.24   41
+```
+
+Prepare the time to be used (alternatively, a different time mapping can
+be used)
+
+``` r
+range(pdata$Date <- as.Date(pdata$Date, "%d/%m/%y"))
+#> [1] "2005-10-01" "2006-03-31"
+pdata$time <- as.integer(difftime(
+  pdata$Date, min(pdata$Date),
+  units = "days"
+)) + 1
+```
+
+Standardize the covariates that will be used in the data analysis and
+define a dataset including the needed information where the outcome is
+the log of `PM10`, as used in Cameletti et al. (2013).
+
+``` r
+### prepare the covariates
+xnames <- c("A", "WS", "TEMP", "HMIX", "PREC", "EMI")
+xmean <- colMeans(pdata[, xnames])
+xsd <- sapply(pdata[xnames], sd)
+
+### prepare the data (st loc, scale covariates and log PM10)
+dataf <- data.frame(pdata[c("UTMX", "UTMY", "time")],
+  scale(pdata[xnames], xmean, xsd),
+  y = log(pdata$PM10)
+)
+str(dataf)
+#> 'data.frame':    4368 obs. of  10 variables:
+#>  $ UTMX: num  469 423 491 437 426 ...
+#>  $ UTMY: num  4973 4951 4949 4973 5046 ...
+#>  $ time: num  1 1 1 1 1 1 1 1 1 1 ...
+#>  $ A   : num  -1.3956 -0.7564 -0.0254 -0.8881 1.4785 ...
+#>  $ WS  : num  -0.0777 -0.2319 0.038 0.4429 -0.6561 ...
+#>  $ TEMP: num  2.1 2.07 1.82 2.06 1.86 ...
+#>  $ HMIX: num  2.18 1.69 2.53 1.38 1.37 ...
+#>  $ PREC: num  -0.29 -0.29 -0.29 -0.29 -0.29 ...
+#>  $ EMI : num  -0.1753 -0.3454 -0.6353 -0.0985 -0.0324 ...
+#>  $ y   : num  3.33 3.09 2.83 3.22 3 ...
+```
+
+## The data model definition
+
+We consider the following linear mixed model for the outcome \\
+\mathbf{y} = \mathbf{W}\mathbf{\beta} + \mathbf{A}\mathbf{u} +
+\mathbf{e} \\ where \\\beta\\ are fixed effects, or regression
+coefficients including the intercept, for the matrix of covariates
+\\\mathbf{W}\\, \\\mathbf{u}\\ is the spatio-temporal random effect
+having the matrix \\\mathbf{A}\\ the projector matrix from the
+discretized domain to the data. The spatio-temporal random effect
+\\\mathbf{u}\\ is defined in a continuous spacetime domain being
+discretized considering meshes over time and space. The difference from
+Cameletti et al. (2013) is that we now use the models in Lindgren et al.
+(2024) for \\\mathbf{u}\\.
+
+Define a temporal mesh, with each knot spaced by `h`, where `h = 1`
+means one per day.
+
+``` r
+nt <- max(pdata$time)
+h <- 10
+tmesh <- fm_mesh_1d(
+  loc = seq(1, nt + h / 2, h),
+  degree = 1
+)
+tmesh$n
+#> [1] 19
+```
+
+Define a spatial mesh, the same used in Cameletti et al. (2013).
+
+``` r
+smesh <- fm_mesh_2d(
+  cbind(locs[, c("UTMX", "UTMY")]),
+  loc.domain = pborders,
+  max.edge = c(50, 300),
+  offset = c(10, 140),
+  cutoff = 5,
+  min.angle = c(26, 21)
+)
+smesh$n
+#> [1] 142
+```
+
+Visualize the spatial mesh, the border and the locations.
+
+``` r
+ggplot() +
+  theme_minimal() +
+  geom_fm(data = smesh) +
+  geom_polygon(
+    data = pborders, aes(x = UTM_X, y = UTM_Y),
+    fill = NA, color = "green4", size = 1
+  ) +
+  geom_point(aes(UTMX, UTMY), data = locs, col = "blue")
+```
+
+![](nonseparable_spacetime_files/figure-html/smeshvis-1.png)
+
+We set the prior for the likelihood precision considering a PC-prior,
+Simpson et al. (2017), through the following probabilistic statements:
+P(\\\sigma_e \> U\_{\sigma_e}\\) = \\\alpha\_{\sigma_e}\\, using
+\\U\_{\sigma_e}\\ = 1 and \\\alpha\_{\sigma_e} = 0.05\\.
+
+``` r
+lkprec <- list(
+  prec = list(prior = "pcprec", param = c(1, 0.05))
+)
+```
+
+With **inlabru** we can define the observation/likelihood model with the
+[`bru_obs()`](https://inlabru-org.github.io/inlabru/reference/bru_obs.html)
+function and use it for fitting models with different linear predictors
+later.
+
+``` r
+lhood <- bru_obs(
+  formula = y ~ .,
+  family = "gaussian",
+  control.family = list(
+    hyper = lkprec
+  ),
+  data = dataf
+)
+```
+
+The linear predictor, the right-rand side of the formula, can be defined
+using the same expression for of the both models that we are going to
+fit and is
+
+``` r
+M <- ~ -1 + Intercept(1) + A + WS + TEMP + HMIX + PREC + EMI +
+  field(
+    list(
+      space = cbind(UTMX, UTMY),
+      time = time
+    ),
+    model = stmodel
+  )
+```
+
+## The spacetime models
+
+The implementation of the spacetime model uses the `cgeneric` interface
+in **INLA**, see its documentation for details. Therefore we have a `C`
+code to mainly build the precision matrix and compute the model
+parameter priors and compiled as static library. We have this code
+included in the **INLAspacetime** package but it is also being copied to
+the **INLA** package and compiled with the same compilers in order to
+avoid possible mismatches. In order to use it, we have to define the
+matrices and vectors needed, including the prior parameter definitions.
+
+The class of models in Lindgren et al. (2024) have the spatial range,
+temporal range and marginal standard deviation as parameters. We
+consider the PC-prior, as in Fuglstad et al. (2017), for these
+parameters defined from the probability statements:
+P(\\r_s\<U\_{r_s}\\)=\\\alpha\_{r_s}\\,
+P(\\r_t\<U\_{r_t}\\)=\\\alpha\_{r_t}\\ and
+P(\\\sigma\<U\_{\sigma}\\)=\\\alpha\_{\sigma}\\. We consider
+\\U\_{r_s}=100\\, \\U\_{r_t}=5\\ and \\U\_{\sigma}=2\\.
+\\\alpha\_{r_s}=\alpha\_{r_t}=\alpha\_{\sigma}=0.05\\
+
+The selection of one of the models in Lindgren et al. (2024) is by
+chosing the \\\alpha_t\\, \\\alpha_s\\ and \\\alpha_e\\ as integer
+numbers. We will start considering the model \\\alpha_t=1\\,
+\\\alpha_s=0\\ and \\\alpha_t=2\\, which is a model with separable
+spatio-temporal covariance, and then we fit some of the other models
+later.
+
+### Defining a particular model
+
+We define an object with the needed use the function
+[`stModel.define()`](https://rdrr.io/pkg/INLAspacetime/man/stModel.define.html)
+where the model is selected considering the values for \\\alpha_t\\,
+\\\alpha_s\\ and \\\alpha_e\\ collapsed. In order to illustrate how it
+is done, we can set an overall integrate-to-zero constraint, which is
+not needed but helps model components identification. It uses the
+weights based on the mesh node volumes, from both the temporal and
+spatial meshes. This can be set automatically when defining the model by
+adding `constr = TRUE`.
+
+``` r
+model <- "102"
+stmodel <- stModel.define(
+  smesh, tmesh, model,
+  control.priors = list(
+    prs = c(150, 0.05),
+    prt = c(10, 0.05),
+    psigma = c(5, 0.05)
+  ),
+  constr = TRUE
+)
+```
+
+Initial values for the hyper-parameters help to fit the models in less
+computing time. It is also important to consider in the light that each
+dataset has its own parameter scale. For example, we have to consider
+that the spatial domain within a box of around \\203.7\\ by \\266.5\\
+kilometres, which we already did when building the mesh and setting the
+prior for or \\r_s\\.
+
+We can set initial values for the log of the parameters so that it would
+take less iterations to converge:
+
+``` r
+theta.ini <- c(4, 7, 7, 1)
+```
+
+The code to fit the model through **inlabru** is
+
+``` r
+fit102 <-
+  bru(M,
+    lhood,
+    options = list(
+      control.mode = list(theta = theta.ini, restart = TRUE),
+      control.compute = ctrc
+    )
+  )
+```
+
+Summary of the posterior marginal distributions for the fixed effects
+
+``` r
+fit102$summary.fixed[, c(1, 2, 3, 5)]
+#>                  mean          sd  0.025quant  0.975quant
+#> Intercept  3.65236854 0.553535706  2.55644130  4.75029881
+#> A         -0.15588366 0.093746261 -0.34159345  0.02980840
+#> WS        -0.12547220 0.008418801 -0.14198135 -0.10896275
+#> TEMP       0.02523271 0.019371917 -0.01275727  0.06321952
+#> HMIX      -0.11639231 0.009903264 -0.13581171 -0.09697102
+#> PREC      -0.14862185 0.007416318 -0.16316567 -0.13407879
+#> EMI        0.05707296 0.022418849  0.01345279  0.10149985
+```
+
+For the hyperparameters, we transform the posterior marginal
+distributions for the model hyperparameters from the ones computed in
+internal scale, \\\log(1/\sigma^2_e)\\, \\\log(r_s)\\, \\\log(r_t)\\ and
+\\\log(\sigma)\\, to the user scale parametrization, \\\sigma_e\\,
+\\r_s\\, \\r_t\\ and \\\sigma\\, respectively.
+
+``` r
+post.h <- list(
+  sigma_e = inla.tmarginal(
+    function(x) exp(-x / 2),
+    fit102$internal.marginals.hyperpar[[1]]
+  ),
+  range_s = inla.tmarginal(
+    function(x) exp(x),
+    fit102$internal.marginals.hyperpar[[2]]
+  ),
+  range_t = inla.tmarginal(
+    function(x) exp(x),
+    fit102$internal.marginals.hyperpar[[3]]
+  ),
+  sigma_u = inla.tmarginal(
+    function(x) exp(x),
+    fit102$internal.marginals.hyperpar[[4]]
+  )
+)
+```
+
+Then we compute and show the summary of it
+
+``` r
+shyper <- t(sapply(post.h, function(m) {
+  unlist(inla.zmarginal(m, silent = TRUE))
+}))
+shyper[, c(1, 2, 3, 7)]
+#>                mean           sd  quant0.025   quant0.975
+#> sigma_e   0.3839691 4.361965e-03   0.3755367    0.3926672
+#> range_s 553.4207937 6.419357e+01 439.1886315  691.0293091
+#> range_t 677.0492365 2.147859e+02 347.7340004 1184.3110260
+#> sigma_u   1.6569395 2.622976e-01   1.1993893    2.2274714
+```
+
+However, it is better to look at the posterior marginal itself, and we
+will visualize it later.
+
+The model fitted in Cameletti et al. (2013) includes two more covariates
+and setup a model for discrete temporal domain where the temporal
+correlation is modeled as a first order autoregression with parameter
+\\\rho\\. In the fitted model here is defined considering continuous
+temporal domain with the range parameter \\r_s\\. However, the first
+order autocorrelation could be taken as \\\rho =
+\exp(-h\sqrt{8\nu}/r_s)\\, where \\h\\ is the temporal resolution used
+in the temporal mesh and \\\nu\\ is equal \\0.5\\ for the fitted model.
+We can compare our results with Table 3 in Cameletti et al. (2013) with
+
+``` r
+c(shyper[c(1, 4, 2), 1],
+  a = exp(-h * sqrt(8 * 0.5) / shyper[3, 1])
+)
+#>     sigma_e     sigma_u     range_s           a 
+#>   0.3839691   1.6569395 553.4207937   0.9708921
+```
+
+## Comparing different models
+
+We now fit the model \\121\\ for \\u\\ as well, we use the same code for
+building the model matrices
+
+``` r
+model <- "121"
+stmodel <- stModel.define(
+  smesh, tmesh, model,
+  control.priors = list(
+    prs = c(150, 0.05),
+    prt = c(10, 0.05),
+    psigma = c(5, 0.05)
+  ),
+  constr = TRUE
+)
+```
+
+and use the same code for fitting as follows
+
+``` r
+fit121 <-
+  bru(M,
+    lhood,
+    options = list(
+      control.mode = list(theta = theta.ini, restart = TRUE),
+      control.compute = ctrc
+    )
+  )
+```
+
+We will join these fits into a list object to make it easier working
+with it
+
+``` r
+results <- list("u102" = fit102, "u121" = fit121)
+```
+
+The computing time for each model fit
+
+``` r
+sapply(results, function(r) r$cpu.used)
+#>               u102       u121
+#> Pre      0.9176111  0.5062292
+#> Running 13.7107964 41.9062169
+#> Post     1.0756638  0.3022532
+#> Total   15.7040713 42.7146993
+```
+
+and the number of fn-calls during the optimization are
+
+``` r
+sapply(results, function(r) r$misc$nfunc)
+#> u102 u121 
+#>  348  648
+```
+
+The posterior mode for each parameter in each model (in internal scale)
+are
+
+``` r
+sapply(results, function(r) r$mode$theta)
+#>                                                  u102      u121
+#> Log precision for the Gaussian observations 1.9152433  1.904639
+#> Theta1 for field                            6.3047846  8.259909
+#> Theta2 for field                            6.4781745 15.246715
+#> Theta3 for field                            0.4944719  2.726580
+```
+
+We compute the posterior marginal distribution for the hyper-parameters
+in the user-interpretable scale, like we did before for the first model,
+with
+
+``` r
+posts.h2 <- lapply(1:2, function(m) vector("list", 4L))
+for (m in 1:2) {
+  posts.h2[[m]]$sigma_e <-
+    data.frame(
+      parameter = "sigma_e",
+      inla.tmarginal(
+        function(x) exp(-x / 2),
+        results[[m]]$internal.marginals.hyperpar[[1]]
+      )
+    )
+  for (p in 2:4) {
+    posts.h2[[m]][[p]] <-
+      data.frame(
+        parameter = c(NA, "range_s", "range_t", "sigma_u")[p],
+        inla.tmarginal(
+          function(x) exp(x),
+          results[[m]]$internal.marginals.hyperpar[[p]]
+        )
+      )
+  }
+}
+```
+
+Join these all to make visualization easier
+
+``` r
+posts.df <- rbind(
+  data.frame(model = "102", do.call(rbind, posts.h2[[1]])),
+  data.frame(model = "121", do.call(rbind, posts.h2[[2]]))
+)
+
+ggplot(posts.df) +
+  geom_line(aes(x = x, y = y, group = model, color = model)) +
+  ylab("Density") +
+  xlab("") +
+  facet_wrap(~parameter, scales = "free")
+```
+
+![](nonseparable_spacetime_files/figure-html/hpmds2-1.png)
+
+The comparison of the model parameters of \\\mathbf{u}\\ for different
+models have to be done in light with the covariance functions as
+illustrated in Lindgren et al. (2024). The fitted \\\sigma_e\\ by the
+different models are comparable and we can see that when considering
+model \\121\\ for \\\mathbf{u}\\, its posterior marginal are
+concentrated in values lower than when considering model \\102\\.
+
+We can look at the posterior mean of \\u\\ from both models and see that
+under model ‘121’ there is a wider spread.
+
+``` r
+par(mfrow = c(1, 1), mar = c(3, 3, 0, 0.0), mgp = c(2, 1, 0))
+uu.hist <- lapply(results, function(r) {
+  hist(r$summary.random$field$mean,
+    -60:60 / 20,
+    plot = FALSE
+  )
+})
+ylm <- range(uu.hist[[1]]$count, uu.hist[[2]]$count)
+plot(uu.hist[[1]],
+  ylim = ylm,
+  col = rgb(1, 0.1, 0.1, 1.0), border = FALSE,
+  xlab = "u", main = ""
+)
+plot(uu.hist[[2]], add = TRUE, col = rgb(0.1, 0.1, 1, 0.5), border = FALSE)
+legend("topleft", c("separable", "non-separable"),
+  fill = rgb(c(1, 0.1), 0.1, c(0.1, 1), c(1, 0.5)),
+  border = "transparent", bty = "n"
+)
+```
+
+![](nonseparable_spacetime_files/figure-html/uhist-1.png)
+
+We can also check fitting statistics such as DIC, WAIC, the negative of
+the log of the probability ordinates (LPO) and its cross-validated
+version (LCPO), summarized as the mean.
+
+``` r
+t(sapply(results, function(r) {
+  c(
+    DIC = mean(r$dic$local.dic, na.rm = TRUE),
+    WAIC = mean(r$waic$local.waic, na.rm = TRUE),
+    LPO = -mean(log(r$po$po), na.rm = TRUE),
+    LCPO = -mean(log(r$cpo$cpo), na.rm = TRUE)
+  )
+}))
+#>            DIC      WAIC       LPO      LCPO
+#> u102 0.9579697 0.9590617 0.4426451 0.4810318
+#> u121 0.9743292 0.9736905 0.4455777 0.4885154
+```
+
+## The automatic group-leave-out cross validation
+
+One may be interested in evaluating the model prediction. The
+leave-one-out strategy was already available in **INLA** since several
+years ago, see Held, Schrodle, and Rue (2010) for details. Recently, an
+automatic group cross validation strategy was implemented, see Liu and
+Rue (2023) for details.
+
+``` r
+g5cv <- lapply(
+  results, inla.group.cv,
+  num.level.sets = 5,
+  strategy = "posterior", size.max = 50
+)
+```
+
+We can inspect the detected observations that have the posterior linear
+predictor correlated with each one, including itself. For 100th
+observation under model “102” we have
+
+``` r
+g5cv$u102$group[[100]]
+#> $idx
+#> [1]  52  76 100 124 148
+#> 
+#> $corr
+#> [1] 0.9673210 0.9357008 1.0000000 0.9870377 0.9302574
+```
+
+and for the result under model “121” we have
+
+``` r
+g5cv$u121$group[[100]]
+#> $idx
+#> [1]  52  76 100 124 148
+#> 
+#> $corr
+#> [1] 0.9705106 0.9469054 1.0000000 0.9883676 0.9381495
+```
+
+which intersect but are not always the same, for the model setup used.
+
+We can check which are these observations in the dataset
+
+``` r
+dataf[g5cv$u102$group[[100]]$idx, ]
+#>       UTMX    UTMY time          A        WS     TEMP       HMIX       PREC
+#> 52  437.36 4973.34    3 -0.8881265 0.9826878 1.077344 -0.6959771 1.94505331
+#> 76  437.36 4973.34    4 -0.8881265 0.6742163 1.297701  0.9479287 3.70037355
+#> 100 437.36 4973.34    5 -0.8881265 0.7706136 1.441935  0.2530248 0.16426526
+#> 124 437.36 4973.34    6 -0.8881265 0.7513342 1.618220  1.0845756 0.03692618
+#> 148 437.36 4973.34    7 -0.8881265 1.9273816 1.648269 -0.6259302 1.71976109
+#>             EMI        y
+#> 52  -0.01821338 2.564949
+#> 76  -0.01542101 2.708050
+#> 100  0.01622576 2.890372
+#> 124  0.02599903 2.995732
+#> 148  0.08114818 2.944439
+```
+
+and found that most are at the same locations in nearby time.
+
+We can compute the negative of the mean of the log score so that lower
+number is better
+
+``` r
+sapply(g5cv, function(r) -mean(log(r$cv), na.rm = TRUE))
+#>      u102      u121 
+#> 0.5220007 0.5382439
+```
+
+## References
+
+Cameletti, Michela, Finn Lindgren, Daniel Simpson, and Håvard Rue. 2013.
+“Spatio-Temporal Modeling of Particulate Matter Concentration Through
+the SPDE Approach.” *AStA Advances in Statistical Analysis* 97 (2):
+109–31. <https://doi.org/10.1007/s10182-012-0196-3>.
+
+Fuglstad, Geir-Arne, Daniel Simpson, Finn Lindgren, and Håvard Rue.
+2017. “Constructing Priors That Penalize the Complexity of Gaussian
+Random Fields.” *Journal of the American Statistical Association*, no.
+525: 445–52.
+
+Held, Leonhard, Birgit Schrodle, and Håvard Rue. 2010. “Posterior and
+Cross-validatory Predictive Checks: A Comparison of MCMC and INLA.” In
+*Statistical Modelling and Regression Structures*, 111–31. Springer.
+
+Lindgren, F., H. Bakka, D. Bolin, E. Krainski, and H. Rue. 2024. “A
+Diffusion-Based Spatio-Temporal Extension of Gaussian Matérn Fields.”
+*SORT* 48 (1). <https://raco.cat/index.php/SORT/article/view/428665>.
+
+Liu, Z., and H. Rue. 2023. “Leave-Group-Out Cross-Validation for Latent
+Gaussian Models.” <https://arxiv.org/abs/2210.04482>.
+
+Simpson, Daniel, Håvard Rue, Andrea Riebler, Thiago G Martins, and
+Sigrunn H Sørbye. 2017. “Penalising Model Component Complexity: A
+Principled, Practical Approach to Constructing Priors.” *Statistical
+Science* 32 (1): 1–28.

@@ -26,7 +26,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">inlabruCourseMay2025</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.4</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,7 +95,7 @@
                         <h4 data-toc-skip class="author">Finn
 Lindgren</h4>
             
-            <h4 data-toc-skip class="date">Generated on 2025-06-26</h4>
+            <h4 data-toc-skip class="date">Generated on 2025-11-27</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/inlabru-org/inlabruCourseMay2025/blob/main/vignettes/aggregated_counts_1d.Rmd" class="external-link"><code>vignettes/aggregated_counts_1d.Rmd</code></a></small>
       <div class="d-none name"><code>aggregated_counts_1d.Rmd</code></div>
@@ -151,7 +151,7 @@ fields</a> tutorial to properly handle aggregated counts.</p>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">cd</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">x</span>, y <span class="op">=</span> <span class="va">count</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html" class="external-link">ylim</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">max</a></span><span class="op">(</span><span class="va">cd</span><span class="op">$</span><span class="va">count</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="aggregated_counts_1d_files/figure-html/unnamed-chunk-4-1.png" width="672"></p>
+<p><img src="aggregated_counts_1d_files/figure-html/unnamed-chunk-4-1.png" class="r-plt" width="672"></p>
 <p><em>Tip</em>:
 <code>RStudio &gt; Help &gt; Cheatsheets &gt; Data visualisation with ggplot2</code>
 is a useful reference for <code>ggplot2</code> syntax.</p>
@@ -231,24 +231,24 @@ individual points:</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fit2.bru</span><span class="op">)</span></span>
-<span><span class="co">#&gt; inlabru version: 2.12.0.9021</span></span>
-<span><span class="co">#&gt; INLA version: 25.06.22-1</span></span>
-<span><span class="co">#&gt; Components:</span></span>
-<span><span class="co">#&gt; field: main = spde(x), group = exchangeable(1L), replicate = iid(1L), NULL</span></span>
-<span><span class="co">#&gt; Intercept: main = linear(1), group = exchangeable(1L), replicate = iid(1L), NULL</span></span>
+<span><span class="co">#&gt; inlabru version: 2.13.0.9020 </span></span>
+<span><span class="co">#&gt; INLA version: 25.11.22 </span></span>
+<span><span class="co">#&gt; Latent components:</span></span>
+<span><span class="co">#&gt; field: main = spde(x)</span></span>
+<span><span class="co">#&gt; Intercept: main = linear(1)</span></span>
 <span><span class="co">#&gt; Observation models:</span></span>
-<span><span class="co">#&gt;   Family: 'poisson'</span></span>
-<span><span class="co">#&gt;     Tag: &lt;No tag&gt;</span></span>
+<span><span class="co">#&gt;   Model tag: &lt;No tag&gt;</span></span>
+<span><span class="co">#&gt;     Family: 'poisson'</span></span>
 <span><span class="co">#&gt;     Data class: 'data.frame'</span></span>
 <span><span class="co">#&gt;     Response class: 'integer'</span></span>
-<span><span class="co">#&gt;     Predictor: count ~ .</span></span>
-<span><span class="co">#&gt;     Additive/Linear: TRUE/TRUE</span></span>
-<span><span class="co">#&gt;     Used components: effects[field, Intercept], latent[]</span></span>
+<span><span class="co">#&gt;     Predictor: count ~ field + Intercept</span></span>
+<span><span class="co">#&gt;     Additive/Linear/Rowwise: TRUE/TRUE/TRUE</span></span>
+<span><span class="co">#&gt;     Used components: effect[field, Intercept], latent[] </span></span>
 <span><span class="co">#&gt; Time used:</span></span>
-<span><span class="co">#&gt;     Pre = 0.477, Running = 0.211, Post = 0.0902, Total = 0.778 </span></span>
+<span><span class="co">#&gt;     Pre = 0.514, Running = 0.219, Post = 0.102, Total = 0.835 </span></span>
 <span><span class="co">#&gt; Fixed effects:</span></span>
-<span><span class="co">#&gt;            mean    sd 0.025quant 0.5quant 0.975quant  mode   kld</span></span>
-<span><span class="co">#&gt; Intercept 0.626 0.479     -0.437    0.658       1.52 0.729 1.171</span></span>
+<span><span class="co">#&gt;            mean    sd 0.025quant 0.5quant 0.975quant  mode kld</span></span>
+<span><span class="co">#&gt; Intercept 0.626 0.479     -0.437    0.658       1.52 0.729   0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Random effects:</span></span>
 <span><span class="co">#&gt;   Name     Model</span></span>
@@ -256,15 +256,8 @@ individual points:</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Model hyperparameters:</span></span>
 <span><span class="co">#&gt;                   mean     sd 0.025quant 0.5quant 0.975quant   mode</span></span>
-<span><span class="co">#&gt; Range for field 35.075 19.905     10.922   30.470      86.45 23.073</span></span>
+<span><span class="co">#&gt; Range for field 35.074 19.905     10.922   30.470      86.45 23.073</span></span>
 <span><span class="co">#&gt; Stdev for field  0.594  0.221      0.275    0.557       1.13  0.488</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Deviance Information Criterion (DIC) ...............: 59.22</span></span>
-<span><span class="co">#&gt; Deviance Information Criterion (DIC, saturated) ....: 13.58</span></span>
-<span><span class="co">#&gt; Effective number of parameters .....................: 5.16</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Watanabe-Akaike information criterion (WAIC) ...: 57.43</span></span>
-<span><span class="co">#&gt; Effective number of parameters .................: 2.63</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Marginal log-Likelihood:  -36.69 </span></span>
 <span><span class="co">#&gt;  is computed </span></span>
@@ -309,24 +302,24 @@ integrals:</p>
 <span><span class="op">}</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fit2block.bru</span><span class="op">)</span></span>
-<span><span class="co">#&gt; inlabru version: 2.12.0.9021</span></span>
-<span><span class="co">#&gt; INLA version: 25.06.22-1</span></span>
-<span><span class="co">#&gt; Components:</span></span>
-<span><span class="co">#&gt; field: main = spde(x), group = exchangeable(1L), replicate = iid(1L), NULL</span></span>
-<span><span class="co">#&gt; Intercept: main = linear(1), group = exchangeable(1L), replicate = iid(1L), NULL</span></span>
+<span><span class="co">#&gt; inlabru version: 2.13.0.9020 </span></span>
+<span><span class="co">#&gt; INLA version: 25.11.22 </span></span>
+<span><span class="co">#&gt; Latent components:</span></span>
+<span><span class="co">#&gt; field: main = spde(x)</span></span>
+<span><span class="co">#&gt; Intercept: main = linear(1)</span></span>
 <span><span class="co">#&gt; Observation models:</span></span>
-<span><span class="co">#&gt;   Family: 'poisson'</span></span>
-<span><span class="co">#&gt;     Tag: &lt;No tag&gt;</span></span>
+<span><span class="co">#&gt;   Model tag: &lt;No tag&gt;</span></span>
+<span><span class="co">#&gt;     Family: 'poisson'</span></span>
 <span><span class="co">#&gt;     Data class: 'tbl_df', 'tbl', 'data.frame'</span></span>
 <span><span class="co">#&gt;     Response class: 'integer'</span></span>
-<span><span class="co">#&gt;     Predictor: count ~ .</span></span>
-<span><span class="co">#&gt;     Additive/Linear: FALSE/FALSE</span></span>
-<span><span class="co">#&gt;     Used components: effects[field, Intercept], latent[]</span></span>
+<span><span class="co">#&gt;     Predictor: ~ {ibm_eval(BRU_aggregate_mapper, input = BRU_aggregate_input, state = {field + Intercept})}</span></span>
+<span><span class="co">#&gt;     Additive/Linear/Rowwise: FALSE/FALSE/FALSE</span></span>
+<span><span class="co">#&gt;     Used components: effect[field, Intercept], latent[] </span></span>
 <span><span class="co">#&gt; Time used:</span></span>
-<span><span class="co">#&gt;     Pre = 0.343, Running = 0.228, Post = 0.0798, Total = 0.65 </span></span>
+<span><span class="co">#&gt;     Pre = 0.343, Running = 0.216, Post = 0.0852, Total = 0.644 </span></span>
 <span><span class="co">#&gt; Fixed effects:</span></span>
-<span><span class="co">#&gt;            mean    sd 0.025quant 0.5quant 0.975quant  mode   kld</span></span>
-<span><span class="co">#&gt; Intercept 0.627 0.472     -0.419    0.659      1.508 0.729 1.219</span></span>
+<span><span class="co">#&gt;            mean    sd 0.025quant 0.5quant 0.975quant  mode kld</span></span>
+<span><span class="co">#&gt; Intercept 0.627 0.472     -0.419    0.659      1.508 0.729   0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Random effects:</span></span>
 <span><span class="co">#&gt;   Name     Model</span></span>
@@ -336,13 +329,6 @@ integrals:</p>
 <span><span class="co">#&gt;                   mean     sd 0.025quant 0.5quant 0.975quant   mode</span></span>
 <span><span class="co">#&gt; Range for field 33.590 19.718      9.978   28.954      84.61 21.549</span></span>
 <span><span class="co">#&gt; Stdev for field  0.595  0.218      0.279    0.559       1.12  0.492</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Deviance Information Criterion (DIC) ...............: 59.01</span></span>
-<span><span class="co">#&gt; Deviance Information Criterion (DIC, saturated) ....: 13.37</span></span>
-<span><span class="co">#&gt; Effective number of parameters .....................: 5.01</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; Watanabe-Akaike information criterion (WAIC) ...: 57.28</span></span>
-<span><span class="co">#&gt; Effective number of parameters .................: 2.57</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Marginal log-Likelihood:  -36.58 </span></span>
 <span><span class="co">#&gt;  is computed </span></span>
@@ -388,7 +374,7 @@ curves.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ylab</a></span><span class="op">(</span><span class="st">"Intensity"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Warning in ggplot2::geom_line(data = data, line.map, ...): Ignoring</span></span>
 <span><span class="co">#&gt; unknown aesthetics: <span style="color: #00BB00;">fill</span></span></span></code></pre></div>
-<p><img src="aggregated_counts_1d_files/figure-html/unnamed-chunk-11-1.png" width="672"></p>
+<p><img src="aggregated_counts_1d_files/figure-html/unnamed-chunk-11-1.png" class="r-plt" width="672"></p>
 <p>We can see that for this toy problem, using the proper aggregated
 count observation model doesn’t make a noticeable difference to the
 fitted model. For more realistic settings, in particular those involving
@@ -398,28 +384,42 @@ the integration scheme to resolve small features.</p>
 <code><a href="https://inlabru-org.github.io/inlabru/reference/bru_timings.html" class="external-link">bru_timings()</a></code>:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/bru_timings.html" class="external-link">bru_timings</a></span><span class="op">(</span><span class="va">fit2.bru</span><span class="op">)</span></span>
-<span><span class="co">#&gt;         Task Iteration       Time     System    Elapsed</span></span>
-<span><span class="co">#&gt; 1 Preprocess         0 0.365 secs 0.026 secs 0.378 secs</span></span>
-<span><span class="co">#&gt; 2 Preprocess         1 0.108 secs 0.022 secs 0.119 secs</span></span>
-<span><span class="co">#&gt; 3 Run inla()         1 0.718 secs 0.112 secs 0.807 secs</span></span>
-<span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/bru_timings.html" class="external-link">bru_timings</a></span><span class="op">(</span><span class="va">fit2block.bru</span><span class="op">)</span></span>
 <span><span class="co">#&gt;          Task Iteration       Time     System    Elapsed</span></span>
-<span><span class="co">#&gt; 1  Preprocess         0 0.108 secs 0.023 secs 0.118 secs</span></span>
-<span><span class="co">#&gt; 2  Preprocess         1 0.212 secs 0.000 secs 0.213 secs</span></span>
-<span><span class="co">#&gt; 3  Run inla()         1 0.444 secs 0.060 secs 0.541 secs</span></span>
-<span><span class="co">#&gt; 4 Line search         1 0.015 secs 0.000 secs 0.015 secs</span></span>
-<span><span class="co">#&gt; 5  Preprocess         2 0.213 secs 0.000 secs 0.212 secs</span></span>
-<span><span class="co">#&gt; 6  Run inla()         2 0.432 secs 0.060 secs 0.538 secs</span></span>
-<span><span class="co">#&gt; 7 Line search         2 0.234 secs 0.000 secs 0.234 secs</span></span>
-<span><span class="co">#&gt; 8  Preprocess         3 0.174 secs 0.000 secs 0.173 secs</span></span>
-<span><span class="co">#&gt; 9  Run inla()         3 0.642 secs 0.076 secs 0.674 secs</span></span>
+<span><span class="co">#&gt; 1  Preprocess         0 0.070 secs 0.008 secs 0.078 secs</span></span>
+<span><span class="co">#&gt; 2  Preprocess         1 0.069 secs 0.000 secs 0.068 secs</span></span>
+<span><span class="co">#&gt; 3  Run inla()         1 0.781 secs 0.190 secs 0.863 secs</span></span>
+<span><span class="co">#&gt; 4 Postprocess         1 0.006 secs 0.000 secs 0.006 secs</span></span>
+<span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/bru_timings.html" class="external-link">bru_timings</a></span><span class="op">(</span><span class="va">fit2block.bru</span><span class="op">)</span></span>
+<span><span class="co">#&gt;           Task Iteration       Time     System    Elapsed</span></span>
+<span><span class="co">#&gt; 1   Preprocess         0 0.056 secs 0.000 secs 0.056 secs</span></span>
+<span><span class="co">#&gt; 2   Preprocess         1 0.204 secs 0.000 secs 0.203 secs</span></span>
+<span><span class="co">#&gt; 3   Run inla()         1 0.497 secs 0.173 secs 0.606 secs</span></span>
+<span><span class="co">#&gt; 4  Postprocess         1 0.004 secs 0.000 secs 0.005 secs</span></span>
+<span><span class="co">#&gt; 5  Line search         1 0.013 secs 0.000 secs 0.013 secs</span></span>
+<span><span class="co">#&gt; 6    Linearise         1 0.184 secs 0.000 secs 0.184 secs</span></span>
+<span><span class="co">#&gt; 7   Preprocess         2 0.004 secs 0.000 secs 0.003 secs</span></span>
+<span><span class="co">#&gt; 8   Run inla()         2 0.419 secs 0.194 secs 0.546 secs</span></span>
+<span><span class="co">#&gt; 9  Postprocess         2 0.004 secs 0.001 secs 0.005 secs</span></span>
+<span><span class="co">#&gt; 10 Line search         2 0.267 secs 0.000 secs 0.266 secs</span></span>
+<span><span class="co">#&gt; 11   Linearise         2 0.178 secs 0.000 secs 0.179 secs</span></span>
+<span><span class="co">#&gt; 12  Preprocess         3 0.003 secs 0.000 secs 0.003 secs</span></span>
+<span><span class="co">#&gt; 13  Run inla()         3 0.632 secs 0.185 secs 0.667 secs</span></span>
+<span><span class="co">#&gt; 14 Postprocess         3 0.006 secs 0.000 secs 0.006 secs</span></span>
 <span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/bru_timings_plot.html" class="external-link">bru_timings_plot</a></span><span class="op">(</span><span class="va">fit2block.bru</span><span class="op">)</span></span></code></pre></div>
-<p><img src="aggregated_counts_1d_files/figure-html/unnamed-chunk-12-1.png" width="672"></p>
+<p><img src="aggregated_counts_1d_files/figure-html/unnamed-chunk-12-1.png" class="r-plt" width="672"></p>
 <p>To check the iterative method convergence, use
 <code><a href="https://inlabru-org.github.io/inlabru/reference/bru_convergence_plot.html" class="external-link">bru_convergence_plot()</a></code>:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/bru_convergence_plot.html" class="external-link">bru_convergence_plot</a></span><span class="op">(</span><span class="va">fit2block.bru</span><span class="op">)</span></span></code></pre></div>
-<p><img src="aggregated_counts_1d_files/figure-html/unnamed-chunk-13-1.png" width="672"></p>
+<code class="sourceCode R"><span><span class="fu"><a href="https://inlabru-org.github.io/inlabru/reference/bru_convergence_plot.html" class="external-link">bru_convergence_plot</a></span><span class="op">(</span><span class="va">fit2block.bru</span><span class="op">)</span></span>
+<span><span class="co">#&gt; `geom_line()`: Each group consists of only one observation.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Do you need to adjust the <span style="color: #00BB00;">group</span> aesthetic?</span></span>
+<span><span class="co">#&gt; `geom_line()`: Each group consists of only one observation.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Do you need to adjust the <span style="color: #00BB00;">group</span> aesthetic?</span></span>
+<span><span class="co">#&gt; `geom_line()`: Each group consists of only one observation.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Do you need to adjust the <span style="color: #00BB00;">group</span> aesthetic?</span></span>
+<span><span class="co">#&gt; `geom_line()`: Each group consists of only one observation.</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Do you need to adjust the <span style="color: #00BB00;">group</span> aesthetic?</span></span></code></pre></div>
+<p><img src="aggregated_counts_1d_files/figure-html/unnamed-chunk-13-1.png" class="r-plt" width="672"></p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -433,7 +433,7 @@ the integration scheme to resolve small features.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>
