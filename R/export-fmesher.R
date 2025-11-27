@@ -22,6 +22,8 @@ fmesher::`fm_as_mesh_3d_list`
 #' @export
 fmesher::`fm_evaluator_lattice`
 #' @export
+fmesher::`fm_zm_target`
+#' @export
 fmesher::`fm_wkt_tree_get_item`
 #' @export
 fmesher::`fm_as_tensor_list`
@@ -41,6 +43,8 @@ fmesher::`fm_evaluate`
 fmesher::`fm_basis`
 #' @export
 fmesher::`fm_block_logsumexp_eval`
+#' @export
+fmesher::`new_fm_int`
 #' @export
 fmesher::`fm_lattice_2d`
 #' @export
@@ -108,11 +112,11 @@ fmesher::`fm_assess`
 #' @export
 fmesher::`fm_crs_plot`
 #' @export
+fmesher::`fmexample_sp`
+#' @export
 fmesher::`fm_segm_split`
 #' @export
 fmesher::`fm_CRS`
-#' @export
-fmesher::`fmexample_sp`
 #' @export
 fmesher::`plot_rgl`
 #' @export
@@ -186,6 +190,8 @@ fmesher::`fm_as_fmesher_sparse`
 #' @export
 fmesher::`fm_wkt_get_ellipsoid_radius`
 #' @export
+fmesher::`fm_zm`
+#' @export
 fmesher::`fm_covariance`
 #' @export
 fmesher::`fm_as_dgCMatrix`
@@ -209,8 +215,6 @@ fmesher::`fm_nonconvex_hull_inla`
 fmesher::`fm_ellipsoid_radius`
 #' @export
 fmesher::`fm_crs_get_ellipsoid_radius`
-#' @export
-fmesher::`fm_spTransform`
 #' @export
 fmesher::`fm_crs`
 #' @export
@@ -236,6 +240,8 @@ fmesher::`fm_as_lattice_2d_list`
 #' @export
 fmesher::`fm_ellipsoid_radius<-`
 #' @export
+fmesher::`fm_zm_input`
+#' @export
 fmesher::`fm_as_dgTMatrix`
 #' @export
 fmesher::`fm_wkt_tree_projection_type`
@@ -250,9 +256,9 @@ fmesher::`fmesher_mesh3d`
 #' @export
 fmesher::`fm_as_collect`
 #' @export
-fmesher::`fm_as_mesh_2d_list`
-#' @export
 fmesher::`lines_rgl`
+#' @export
+fmesher::`fm_as_mesh_2d_list`
 #' @export
 fmesher::`fm_row_kron`
 #' @export
@@ -303,6 +309,8 @@ fmesher::`fm_as_segm`
 fmesher::`fm_as_mesh_1d`
 #' @export
 fmesher::`fm_block_weights`
+#' @export
+fmesher::`fm_subset`
 #' @export
 fmesher::`local_fm_testthat_assign`
 #' @export

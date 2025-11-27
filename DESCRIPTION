@@ -1,19 +1,19 @@
 Package: inlabruCourseMay2025
 Title: Course Materials for Edinburgh inlabru Course 19-20 May 2025
-Version: 0.0.3
+Version: 0.0.4
 Authors@R: 
     person("Finn", "Lindgren", , "finn.lindgren@gmail.com", role = c("aut", "cre"))
 Description: Course Materials for Edinburgh inlabru Course 19-20 May 2025.
 License: MPL-2.0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 URL: https://inlabru-org.github.io/inlabruCourseMay2025/, https://github.com/inlabru-org/inlabruCourseMay2025/
 Additional_repositories: https://inla.r-inla-download.org/R/testing, https://inlabru-org.r-universe.dev
 Depends:
-    R (>= 4.4),
-    inlabru (>= 2.12.0.9021),
-    fmesher (>= 0.4.0.9004),
+    R (>= 4.5),
+    inlabru (>= 2.13.0.9020),
+    fmesher (>= 0.5.0.9013),
     methods,
     stats
 Suggests:
