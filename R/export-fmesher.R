@@ -1,7 +1,5 @@
 #' @import fmesher
 #' @export
-fmesher::`fm_CRSargs_as_list`
-#' @export
 fmesher::`fm_basis_mesh_2d`
 #' @export
 fmesher::`fm_nonconvex_hull_inla_basic`
@@ -112,11 +110,11 @@ fmesher::`fm_assess`
 #' @export
 fmesher::`fm_crs_plot`
 #' @export
-fmesher::`fmexample_sp`
-#' @export
 fmesher::`fm_segm_split`
 #' @export
 fmesher::`fm_CRS`
+#' @export
+fmesher::`fmexample_sp`
 #' @export
 fmesher::`plot_rgl`
 #' @export
@@ -172,8 +170,6 @@ fmesher::`fm_wkt_projection_type`
 #' @export
 fmesher::`fm_store_points`
 #' @export
-fmesher::`fm_CRSargs`
-#' @export
 fmesher::`fm_list`
 #' @export
 fmesher::`fm_as_unpackedMatrix`
@@ -197,8 +193,6 @@ fmesher::`fm_covariance`
 fmesher::`fm_as_dgCMatrix`
 #' @export
 fmesher::`fm_crs_is_identical`
-#' @export
-fmesher::`fm_CRS_as_list`
 #' @export
 fmesher::`fm_crs_projection_type`
 #' @export
@@ -256,9 +250,9 @@ fmesher::`fmesher_mesh3d`
 #' @export
 fmesher::`fm_as_collect`
 #' @export
-fmesher::`lines_rgl`
-#' @export
 fmesher::`fm_as_mesh_2d_list`
+#' @export
+fmesher::`lines_rgl`
 #' @export
 fmesher::`fm_row_kron`
 #' @export
@@ -290,6 +284,8 @@ fmesher::`fm_wkt_set_lengthunit`
 #' @export
 fmesher::`fm_crs_set_lengthunit`
 #' @export
+fmesher::`fmesher_spherical_harmonics`
+#' @export
 fmesher::`fm_matern_precision`
 #' @export
 fmesher::`fm_delaunay_3d`
@@ -312,11 +308,11 @@ fmesher::`fm_block_weights`
 #' @export
 fmesher::`fm_subset`
 #' @export
-fmesher::`local_fm_testthat_assign`
-#' @export
 fmesher::`fm_wkt_tree_set_item`
 #' @export
 fmesher::`fm_qinv`
+#' @export
+fmesher::`local_fm_testthat_assign`
 #' @export
 fmesher::`fm_manifold`
 #' @export
@@ -329,8 +325,6 @@ fmesher::`fm_mesh_2d`
 fmesher::`fm_wkt_tree_as_wkt`
 #' @export
 fmesher::`fm_is_bnd`
-#' @export
-fmesher::`fm_list_as_CRS`
 #' @export
 fmesher::`fm_sizes`
 #' @export
