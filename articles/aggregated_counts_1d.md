@@ -142,8 +142,8 @@ fit2.bru <- bru(
 )
 
 summary(fit2.bru)
-#> inlabru version: 2.13.0.9020 
-#> INLA version: 25.11.22 
+#> inlabru version: 2.13.0.9024 
+#> INLA version: 25.12.12 
 #> Latent components:
 #> field: main = spde(x)
 #> Intercept: main = linear(1)
@@ -156,7 +156,7 @@ summary(fit2.bru)
 #>     Additive/Linear/Rowwise: TRUE/TRUE/TRUE
 #>     Used components: effect[field, Intercept], latent[] 
 #> Time used:
-#>     Pre = 0.514, Running = 0.219, Post = 0.102, Total = 0.835 
+#>     Pre = 0.503, Running = 0.218, Post = 0.0961, Total = 0.818 
 #> Fixed effects:
 #>            mean    sd 0.025quant 0.5quant 0.975quant  mode kld
 #> Intercept 0.626 0.479     -0.437    0.658       1.52 0.729   0
@@ -167,7 +167,7 @@ summary(fit2.bru)
 #> 
 #> Model hyperparameters:
 #>                   mean     sd 0.025quant 0.5quant 0.975quant   mode
-#> Range for field 35.074 19.905     10.922   30.470      86.45 23.073
+#> Range for field 35.074 19.904     10.922   30.470      86.45 23.073
 #> Stdev for field  0.594  0.221      0.275    0.557       1.13  0.488
 #> 
 #> Marginal log-Likelihood:  -36.69 
@@ -215,8 +215,8 @@ if (packageVersion("inlabru") >= "2.12.0.9016") {
 }
 
 summary(fit2block.bru)
-#> inlabru version: 2.13.0.9020 
-#> INLA version: 25.11.22 
+#> inlabru version: 2.13.0.9024 
+#> INLA version: 25.12.12 
 #> Latent components:
 #> field: main = spde(x)
 #> Intercept: main = linear(1)
@@ -229,10 +229,10 @@ summary(fit2block.bru)
 #>     Additive/Linear/Rowwise: FALSE/FALSE/FALSE
 #>     Used components: effect[field, Intercept], latent[] 
 #> Time used:
-#>     Pre = 0.343, Running = 0.216, Post = 0.0852, Total = 0.644 
+#>     Pre = 0.336, Running = 0.232, Post = 0.0829, Total = 0.65 
 #> Fixed effects:
 #>            mean    sd 0.025quant 0.5quant 0.975quant  mode kld
-#> Intercept 0.627 0.472     -0.419    0.659      1.508 0.729   0
+#> Intercept 0.627 0.471     -0.418    0.659      1.506 0.728   0
 #> 
 #> Random effects:
 #>   Name     Model
@@ -310,26 +310,26 @@ The computational time is available from
 ``` r
 bru_timings(fit2.bru)
 #>          Task Iteration       Time     System    Elapsed
-#> 1  Preprocess         0 0.070 secs 0.008 secs 0.078 secs
-#> 2  Preprocess         1 0.069 secs 0.000 secs 0.068 secs
-#> 3  Run inla()         1 0.781 secs 0.190 secs 0.863 secs
-#> 4 Postprocess         1 0.006 secs 0.000 secs 0.006 secs
+#> 1  Preprocess         0 0.074 secs 0.002 secs 0.076 secs
+#> 2  Preprocess         1 0.067 secs 0.000 secs 0.068 secs
+#> 3  Run inla()         1 0.796 secs 0.164 secs 0.844 secs
+#> 4 Postprocess         1 0.005 secs 0.000 secs 0.006 secs
 bru_timings(fit2block.bru)
 #>           Task Iteration       Time     System    Elapsed
-#> 1   Preprocess         0 0.056 secs 0.000 secs 0.056 secs
-#> 2   Preprocess         1 0.204 secs 0.000 secs 0.203 secs
-#> 3   Run inla()         1 0.497 secs 0.173 secs 0.606 secs
-#> 4  Postprocess         1 0.004 secs 0.000 secs 0.005 secs
+#> 1   Preprocess         0 0.052 secs 0.000 secs 0.052 secs
+#> 2   Preprocess         1 0.197 secs 0.000 secs 0.197 secs
+#> 3   Run inla()         1 0.479 secs 0.174 secs 0.589 secs
+#> 4  Postprocess         1 0.005 secs 0.000 secs 0.004 secs
 #> 5  Line search         1 0.013 secs 0.000 secs 0.013 secs
-#> 6    Linearise         1 0.184 secs 0.000 secs 0.184 secs
-#> 7   Preprocess         2 0.004 secs 0.000 secs 0.003 secs
-#> 8   Run inla()         2 0.419 secs 0.194 secs 0.546 secs
-#> 9  Postprocess         2 0.004 secs 0.001 secs 0.005 secs
-#> 10 Line search         2 0.267 secs 0.000 secs 0.266 secs
-#> 11   Linearise         2 0.178 secs 0.000 secs 0.179 secs
-#> 12  Preprocess         3 0.003 secs 0.000 secs 0.003 secs
-#> 13  Run inla()         3 0.632 secs 0.185 secs 0.667 secs
-#> 14 Postprocess         3 0.006 secs 0.000 secs 0.006 secs
+#> 6    Linearise         1 0.178 secs 0.000 secs 0.178 secs
+#> 7   Preprocess         2 0.003 secs 0.000 secs 0.003 secs
+#> 8   Run inla()         2 0.441 secs 0.164 secs 0.538 secs
+#> 9  Postprocess         2 0.004 secs 0.000 secs 0.004 secs
+#> 10 Line search         2 0.247 secs 0.000 secs 0.247 secs
+#> 11   Linearise         2 0.172 secs 0.000 secs 0.172 secs
+#> 12  Preprocess         3 0.003 secs 0.000 secs 0.002 secs
+#> 13  Run inla()         3 0.669 secs 0.168 secs 0.674 secs
+#> 14 Postprocess         3 0.006 secs 0.000 secs 0.005 secs
 bru_timings_plot(fit2block.bru)
 ```
 

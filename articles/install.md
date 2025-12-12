@@ -39,8 +39,8 @@ version, which typically contains bug fixes and improvements, and is the
 version `inlabru` is tested against.
 
 The third repository is optional, and gives you easy access to the
-development versions of `inlabru` (2.13.0.9020 or later) and `fmesher`
-(0.5.0.9013 or later, which is a package dependency of `INLA` and
+development versions of `inlabru` (2.13.0.9024 or later) and `fmesher`
+(0.6.0.9000 or later, which is a package dependency of `INLA` and
 `inlabru`). Most of the tutorials in this course will work with the CRAN
 versions of `inlabru` and `fmesher`, `2.12.0`, but installing the
 development version from `r-universe.dev` is recommended, and required
@@ -89,7 +89,7 @@ fit <- INLA::inla(
 )
 summary(fit)
 #> Time used:
-#>     Pre = 0.378, Running = 0.12, Post = 0.0142, Total = 0.513 
+#>     Pre = 0.382, Running = 0.121, Post = 0.0141, Total = 0.517 
 #> Fixed effects:
 #>               mean    sd 0.025quant 0.5quant 0.975quant   mode kld
 #> (Intercept) 10.071 0.105      9.865   10.071     10.277 10.071   0
@@ -121,8 +121,8 @@ fit <- inlabru::bru(
   data = df
 )
 summary(fit)
-#> inlabru version: 2.13.0.9020 
-#> INLA version: 25.11.22 
+#> inlabru version: 2.13.0.9024 
+#> INLA version: 25.12.12 
 #> Latent components:
 #> Intercept: main = linear(1)
 #> Observation models:
@@ -134,7 +134,7 @@ summary(fit)
 #>     Additive/Linear/Rowwise: TRUE/TRUE/TRUE
 #>     Used components: effect[Intercept], latent[] 
 #> Time used:
-#>     Pre = 0.23, Running = 0.12, Post = 0.0334, Total = 0.384 
+#>     Pre = 0.226, Running = 0.12, Post = 0.033, Total = 0.379 
 #> Fixed effects:
 #>             mean    sd 0.025quant 0.5quant 0.975quant   mode kld
 #> Intercept 10.071 0.105      9.865   10.071     10.277 10.071   0

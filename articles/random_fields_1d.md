@@ -238,8 +238,8 @@ fit2.bru <- bru(
 )
 
 summary(fit2.bru)
-#> inlabru version: 2.13.0.9020 
-#> INLA version: 25.11.22 
+#> inlabru version: 2.13.0.9024 
+#> INLA version: 25.12.12 
 #> Latent components:
 #> field: main = spde(x)
 #> Intercept: main = linear(1)
@@ -252,7 +252,7 @@ summary(fit2.bru)
 #>     Additive/Linear/Rowwise: TRUE/TRUE/TRUE
 #>     Used components: effect[field, Intercept], latent[] 
 #> Time used:
-#>     Pre = 0.506, Running = 0.143, Post = 0.0885, Total = 0.738 
+#>     Pre = 0.505, Running = 0.144, Post = 0.0787, Total = 0.727 
 #> Fixed effects:
 #>            mean    sd 0.025quant 0.5quant 0.975quant  mode kld
 #> Intercept 0.631 0.469      -0.41    0.663      1.506 0.733   0

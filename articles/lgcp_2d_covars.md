@@ -133,10 +133,10 @@ are really 647 nests there):
 ips <- fm_int(mesh, boundary)
 Lambda1 <- predict(fit1, ips, ~ sum(weight * exp(vegetation)))
 Lambda1
-#>       mean       sd   q0.025     q0.5   q0.975   median mean.mc_std_err
-#> 1 643.8854 24.96697 590.7959 642.4993 688.9804 642.4993        2.857568
+#>      mean       sd   q0.025     q0.5   q0.975   median mean.mc_std_err
+#> 1 643.533 24.35171 596.1629 644.5241 690.7964 644.5241        2.758136
 #>   sd.mc_std_err
-#> 1      1.804355
+#> 1      1.614822
 ```
 
 #### A model with vegetation type and a SPDE type smoother
@@ -182,10 +182,10 @@ Lambda2 <- predict(
   ~ sum(weight * exp(mySmooth + vegetation))
 )
 Lambda2
-#>       mean       sd   q0.025    q0.5   q0.975  median mean.mc_std_err
-#> 1 672.8771 24.83749 627.6962 671.861 720.9907 671.861        2.895659
+#>       mean       sd   q0.025     q0.5  q0.975   median mean.mc_std_err
+#> 1 679.7804 28.77965 628.8638 677.0475 733.535 677.0475        3.275112
 #>   sd.mc_std_err
-#> 1      2.059551
+#> 1      1.985735
 ```
 
 Look at the contributions to the linear predictor from the SPDE and from
@@ -266,10 +266,10 @@ Lambda3 <- predict(
   ~ sum(weight * exp(mySmooth + Intercept))
 )
 Lambda3
-#>       mean       sd   q0.025     q0.5   q0.975   median mean.mc_std_err
-#> 1 672.6138 25.55332 626.2431 670.8668 714.9361 670.8668        2.844655
+#>       mean       sd   q0.025     q0.5  q0.975   median mean.mc_std_err
+#> 1 670.0427 28.28923 615.9342 672.1644 732.677 672.1644        3.413785
 #>   sd.mc_std_err
-#> 1      1.446619
+#> 1      2.924313
 ```
 
 ``` r
@@ -279,7 +279,7 @@ knitr::kable(deltaIC(fit1, fit2, fit3, criterion = c("DIC")))
 | Model |       DIC | Delta.DIC |
 |:------|----------:|----------:|
 | fit1  | -562.5418 |     0.000 |
-| fit3  |  524.7296 |  1087.271 |
+| fit3  |  524.7290 |  1087.271 |
 | fit2  |  618.8300 |  1181.372 |
 
 NOTE: the behaviour of DIC is currently a bit unclear, and is being
@@ -446,8 +446,8 @@ Summary and model selection
 
 ``` r
 summary(efit)
-#> inlabru version: 2.13.0.9020 
-#> INLA version: 25.11.22 
+#> inlabru version: 2.13.0.9024 
+#> INLA version: 25.12.12 
 #> Latent components:
 #> elev: main = linear(f.elev(.data.))
 #> mySmooth: main = spde(geometry)
@@ -461,7 +461,7 @@ summary(efit)
 #>     Additive/Linear/Rowwise: FALSE/TRUE/FALSE
 #>     Used components: effect[elev, mySmooth, Intercept], latent[] 
 #> Time used:
-#>     Pre = 0.542, Running = 3.95, Post = 0.275, Total = 4.76 
+#>     Pre = 0.572, Running = 3.92, Post = 0.302, Total = 4.8 
 #> Fixed effects:
 #>            mean    sd 0.025quant 0.5quant 0.975quant  mode kld
 #> elev      0.004 0.001      0.002    0.004      0.006 0.004   0
@@ -488,7 +488,7 @@ deltaIC(fit1, fit2, fit3, efit)
 #>   Model       DIC Delta.DIC
 #> 1  fit1 -562.5418     0.000
 #> 2  efit  520.8583  1083.400
-#> 3  fit3  524.7296  1087.271
+#> 3  fit3  524.7290  1087.271
 #> 4  fit2  618.8300  1181.372
 ```
 
@@ -586,10 +586,10 @@ LambdaE <- predict(
   ~ sum(weight * exp(Intercept + elev + mySmooth))
 )
 LambdaE
-#>       mean       sd   q0.025     q0.5   q0.975   median mean.mc_std_err
-#> 1 670.1873 25.86333 627.2926 672.8223 715.2299 672.8223        2.979209
+#>       mean       sd  q0.025     q0.5   q0.975   median mean.mc_std_err
+#> 1 669.6915 25.45412 619.785 669.1411 719.2822 669.1411        2.929762
 #>   sd.mc_std_err
-#> 1      1.964382
+#> 1      1.921752
 ```
 
 ``` r
@@ -633,10 +633,10 @@ Lambda <- predict(
   ~ sum(weight * exp(mySmooth + elev + Intercept))
 )
 Lambda
-#>       mean       sd   q0.025     q0.5   q0.975   median mean.mc_std_err
-#> 1 670.2187 27.29471 617.4294 672.9819 720.2705 672.9819         3.08185
+#>       mean       sd  q0.025     q0.5   q0.975   median mean.mc_std_err
+#> 1 671.5548 26.64219 623.399 670.9635 721.8238 670.9635        2.989171
 #>   sd.mc_std_err
-#> 1      1.761895
+#> 1      1.624759
 
 Nest.e <- predict(
   efit,
